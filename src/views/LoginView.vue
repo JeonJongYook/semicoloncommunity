@@ -1,0 +1,185 @@
+<template>
+	<div class="login">
+		<h1>SemiColon</h1>
+		<!-- <div class="login_sns">
+            <li><a href=""><i class="fab fa-instagram"></i></a></li>
+            <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href=""><i class="fab fa-twitter"></i></a></li>
+		</div> -->
+		<br/>
+		<form class="LoginForm">
+			<p>
+				<label for="memberIdInput">ID</label>&nbsp;
+				<input type="text" id="memberIdInput" class="input_text" ref="memberIdInput" v-model.trim="memberId" placeholder="아이디를 입력하세요." />
+			</p>
+			<p>
+				<label for="memberPasswordInput">PW</label>
+				<input type="password" id="memberPasswordInput" class="input_text" ref="memberPasswordInput" v-model.trim="memberPassword" placeholder="패스워드를 입력하세요." />
+			</p>
+			<div class="login_etc">
+                <div class="checkbox">
+                <input type="checkbox" name="" id=""> 정보를 저장할까요?
+                </div>
+                <div class="forgot_pw">
+                <a href="http://localhost:8080/register">비밀번호를 잊으셨나요?</a>
+				</div>
+            </div>
+			<div class="SubmitAccount">
+				<span>만약 계정이 없다면, <router-link to="/register">회원가입</router-link>을 먼저 진행해주세요!</span>
+			</div>
+			<p class="buttons">
+				<button @click.prevent="doLogin" class="button blue" id="loginButton">로그인</button>
+				<button @click.prevent="doCancel" class="button">취소</button>
+			</p>
+		</form>
+		<p>{{ errorMessage }}</p>
+	</div>
+</template>
+
+<script>
+export default {
+	name: 'LoginForm',
+	data : function() {
+		return {
+			memberId : '',
+			memberPassword : '',
+			errorMessage : ''
+		};
+	},
+	methods : {
+		doLogin() {
+			if (this.memberId == "") {
+				confirm(["아이디를 입력해주세요!"]);
+				this.$refs.memberIdInput.focus();
+				return;
+
+			} else if (this.memberPassword == "") {
+				confirm(["비밀번호를 입력해주세요!"]);
+				this.$refs.memberPasswordInput.focus();
+				return;
+			}
+		},
+		doCancel() {
+			// this.$router.push('../');
+			this.$refs.memberIdInput.value = '';
+			this.$refs.memberPasswordInput.value = '';
+			this.$refs.memberIdInput.focus();
+		},
+		IDshowError() {
+			const options = {title: '경고', size: 'sm'}
+			this.$dialogs.alert('아이디를 입력해주세요!', options)
+			.then(res => {
+				console.log(res)
+			});
+		}
+	},
+	mounted() {
+		this.$refs.memberIdInput.focus();
+	}
+};
+</script>
+
+<style scoped>
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+/* Import End */
+
+div .login { background-color: white; }
+
+.login { 
+	width:800px; 
+	margin:20px auto;
+}
+.login h1 { 
+	text-align: center; 
+	font-family: 'Black Han Sans', sans-serif; 
+}
+.LoginForm { 
+	width:400px; 
+	margin:auto; 
+	text-align: left;
+}
+.LoginForm p > label { 
+	display:inline-block; 
+	font-size:18px; 
+	padding-right:16px; 
+	font-family: 'Black Han Sans', sans-serif; 
+}
+/* .LoginForm p > .input_text { width:200px; font-size:16px; height:32px; } */
+.LoginForm p > .input_text { 
+	width: 100%;
+	height: 50px;
+	border-radius: 30px;
+	margin-top: 10px;
+	padding: 0px 20px;
+	outline: none;
+	text-align: center;
+	font-family: 'Jua', sans-serif;
+	border-radius: 30px;
+	margin-top: 10px;
+	padding: 0px 20px;
+	outline: none;
+	font-size: 22px;
+}
+
+.buttons { 
+	position:relative; 
+	height:32px; 
+	margin-top:20px; 
+	text-align: center;
+}
+/* .buttons > .button { overflow:visible; cursor:pointer; min-width:125px; height:32px; margin:0 2px; padding:0 15px; line-height:32px; font-size:14px; border:1px solid #dfdfdf; background:#fff; border-radius:10px;  margin-top: 20px; width: 80%; font-weight: bold; } */
+.buttons > .button { 
+	overflow: visible; 
+	cursor: pointer; 
+	min-width:125px; 
+	height: 40px;
+	margin:0 2px; 
+	padding:0 15px; 
+	line-height:32px; 
+	font-size: 1.2em;
+	border: 0;
+	/* border:1px solid #dfdfdf;  */
+	background: #D3D3D3; 
+	border-radius:40px;  
+	margin-top: 20px; 
+	width: 80%; 
+	font-weight: bold; 
+	outline: none;
+}
+
+.buttons > .button.blue { 
+	color:#fff; 
+	border-color:#0099d2 !important; 
+	background:#0099d2 !important; 
+	margin-top: 20px; 
+	width: 80%; 
+	font-weight: bold;
+	border-radius:40px;
+}
+
+.login_etc {
+  padding: 12px;
+  width: 100%;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  text-align: center;
+  margin-left: 10px;
+}
+
+div .SubmitAccount {
+	padding: 12px;
+	width: 100%;
+	font-size: 14px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-weight: bold;
+	text-align: center;
+	margin-left: 10px;
+}
+</style>
