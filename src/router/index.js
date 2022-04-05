@@ -8,6 +8,11 @@ const routes = [
     component: HomeView
   },
   {
+    path: '/login/success/profile',
+    name: 'UserProfile',
+    component:  () => import(/* webpackChunkName: "UserProfile" */ '../views/UsersProfile/ProfileView.vue')
+  },
+  {
     path: '/login',
     name: 'login',
     component:  () => import(/* webpackChunkName: "register" */ '../views/LoginView.vue')
@@ -18,7 +23,7 @@ const routes = [
     component:  () => import(/* webpackChunkName: "loginSuccess" */ '../views/UserLoginSuccessView.vue')
   },
   {
-    path: '/login/setting',
+    path: '/login/success/setting',
     name: 'loginSetting',
     component:  () => import(/* webpackChunkName: "userSetting" */ '../views/UserSettingsView.vue')
   },

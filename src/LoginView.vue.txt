@@ -23,8 +23,7 @@
 				<span>만약 계정이 없다면, <router-link to="/register">회원가입</router-link>을 먼저 진행해주세요!</span>
 			</div>
 			<p class="buttons">
-				<!-- <button @click.prevent="doLogin" class="button blue" id="loginButton">로그인</button> -->
-				<button @click.prevent="checkAll" class="button blue" id="loginButton">로그인</button>
+				<button @click.prevent="doLogin" class="button blue" id="loginButton">로그인</button>
 				<button @click.prevent="doCancel" class="button">취소</button>
 			</p>
 		</form>
@@ -39,87 +38,23 @@ export default {
 		return {
 			memberId : '',
 			memberPassword : '',
-			errorMessage : ''
+			errorMessage : '',
+			adminId : '',
+			adminPw : ''
 		};
 	},
 	methods : {
-        checkAll() {
-            if (!this.checkUserId(this.$refs.memberIdInput.value)) {
-                return false;
-            } else if (!this.checkPassword(this.$refs.memberIdInput.value, this.$refs.memberPasswordInput.value)) {
-                return false;
-            } else {
-                return true;
-            }
-        },
-        checkExistData() {
-            if (this.memberId == "") {
-				alert("아이디를 입력해주세요!");
-				this.$refs.memberIdInput.focus();
-				return true;
-
-            } else if (this.memberPassword == "") {
-				alert("비밀번호를 입력해주세요!");
-				this.$refs.memberPasswordInput.focus();
-				return true;
-            } else if (this.memberId == "admin1234" && this.memberPassword == "admin1234!") {
-                alert(this.memberId + "님 환영합니다.");
-                window.open('localhost:8080/login/success', 'admin로그인 성공', '_self');
-                return true;
-            } 
-            return false;
-        },
-        checkUserId(id) {
-            if(!this.checkExistData(id, "아이디를"))
-            return false;
-
-            var idRegExp = /^[a-zA-z0-9]{8,16}$/;
-            if(!idRegExp.text(id)) {
-                alert("아이디는 영문 대소문자와 숫자 8~16자리로 입력해야 합니다.");
-                this.$refs.memberIdInput.value == "";
-                this.$refs.memberIdInput.value.focus();
-                return false;
-            }
-            return true;
-        },
-        checkPassword(id, password1) {
-            if (!this.checkExistData(password1, "비밀번호를"))
-            return false;
-
-            var password1RegExp = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^*+=-]).{6,16}$/;
-            if (!password1RegExp.test(password1)) {
-                alert("비밀번호는 영문 대소문자와 숫자 4~12자리로 입력해야합니다!");
-                this.$refs.memberPasswordInput.value = "";
-                this.$refs.memberPasswordInput.focus();
-                return false;
-            }
-
-            if (id == password1) {
-                alert("아이디와 비밀번호는 같을 수 없습니다!");
-                this.$refs.memberPasswordInput.value = "";
-                this.$refs.memberPasswordInput.focus();
-                return false;
-            }
-            return true;
-        },
 		doLogin() {
 			if (this.memberId == "") {
 				alert("아이디를 입력해주세요!");
 				this.$refs.memberIdInput.focus();
-				return true;
+				return;
+
 			} else if (this.memberPassword == "") {
 				alert("비밀번호를 입력해주세요!");
 				this.$refs.memberPasswordInput.focus();
-				return true;
-                
-            } else if (this.memberId == "admin1234" && this.memberPassword == "admin1234!") {
-                // var link = 'localhost:8080/login/success';
-                alert(this.memberId + "님 환영합니다.");
-                return true;
-                // window.location.href("https://localhost:8080/login/successs");
-                // window.open(link, 'admin로그인 성공', '_self');
-            }
-            return false;
+				return;
+			}
 		},
 		doCancel() {
 			this.$refs.memberIdInput.value = '';

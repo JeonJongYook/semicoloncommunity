@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>메인 홈페이지</h1>
+    <h1>메인 홈페이지 {{name}}</h1>
   </div>
 </template>
 

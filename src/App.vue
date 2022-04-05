@@ -1,39 +1,48 @@
 <template>
-  <!-- <header> -->
-		<!-- <div class="menuWrap">
-			<ul class="menu">
-				<nav><router-link to="/">홈</router-link>&nbsp;</nav>
-				<nav><router-link to="/login">로그인</router-link>&nbsp;</nav>
-				<nav><router-link to="/register">회원 가입</router-link>&nbsp;</nav>
-			</ul>
-		</div> -->
-	<!-- </header> -->
-
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
       <a class="navbar-brand" href="http://localhost:8080">SemiColon</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-      aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <router-link to="/"><span class="material-icons">home</span>홈&nbsp;&nbsp;</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/login">로그인&nbsp;&nbsp;</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/register">회원가입</router-link>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
-
-  
+      <!-- <div class="navbar-nav ml-auto" v-if="currentUser">
+        <li class="nav-item">
+          <a href="/profile" class="nav-link">
+            <font-awesome-icon icon="user" />
+            {{currentUser.username}}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href class="nav-link" @click="logOut">
+            <font-awesome-icon icon="sign-out-alt" /> LogOut
+          </a>
+        </li>
+      </div> -->
+    </nav>
+  <!-- <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="http://localhost:8080">SemiColon</a> -->
+        <!-- <notifications /> -->
+        
+        <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button> -->
+        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+        <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0"> -->
+        <!--   <button @click="onClick()" variant="primary" text="FF" class="align-baseline"></button> Button Text Avatar -->
+          <!-- <li class="nav-item">
+            <router-link to="/">홈&nbsp;&nbsp;</router-link> 
+          </li> -->
+          <!-- <li class="nav-item">
+            <router-link to="/login"><span class="material-icons">login</span>로그인&nbsp;&nbsp;</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/register"><span class="material-icons">how_to_reg</span>회원가입</router-link>
+          </li> -->
+        <!-- </ul> -->
+        <!-- </div> -->
+      <!-- </div>
+    </nav>
+  </header> -->
   <router-view/>
   <br/>
   <br/>
@@ -43,25 +52,14 @@
   <footer class="mt-5 py-5 bg-dark text-white">
 		<p>&copy; CopyRight SemiColon</p>
   </footer>
-  <!-- <footer>
-    <br/>
-		<p>&copy; CopyRight SemiColon</p>
-	</footer> -->
 </template>
 
 <style scoped>  
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap');
 
-
-/* #app {
-  font-family: Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-} */
 #app {
   margin:0 auto; 
   width:750px; 
@@ -124,8 +122,11 @@ footer p{
 .navbar-collapse::hover::after {
   width: 100%;
 }
+
 .navbar-dark .navbar-brand {
   font-family: 'Dela Gothic One', cursive;
+  margin-left: 10px;
+  /* font-family: 'IBM Plex Sans KR', sans-serif; */
 }
 
 .navbar-dark .navbar-brand::after {
@@ -190,6 +191,10 @@ a{
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  margin-top: 5px;
+  margin-right: 2px;
+  margin-bottom: 2px;
+  margin-left: 2px;
 
   /* Support for all WebKit browsers. */
   -webkit-font-smoothing: antialiased;
@@ -202,8 +207,17 @@ a{
 
   /* Support for IE. */
   font-feature-settings: 'liga';
- }
+}
+/* .navbar-expand-lg .navbar-collapse {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  padding: 20px;
+} */
+/* .b-list-group b-list-item {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  /* padding: 20px;
+} */
 </style>
-
-<script>
-</script>
