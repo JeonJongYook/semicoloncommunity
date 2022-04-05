@@ -1,9 +1,25 @@
 <template>
   <nav class="navbar navbar-expand navbar-dark bg-dark">
       <a class="navbar-brand" href="http://localhost:8080">SemiColon</a>
-      <div class="profile">
+      <header class="tc pv4 pv5-ns">
+        <img src="http://tachyons.io/img/logo.jpg" class="br-100 pa1 ba b--black-10 h3 w3" alt="avatar"><h4>Admin</h4>
+        <!-- <h1 class="f5 f4-ns fw6 mid-gray">Jasper Whitehouse</h1> -->
+        <!-- <h2 class="f6 gray fw2 ttu tracked">Los Angeles</h2> -->
+      </header>
+      <!-- <div class="profile">
         <h3><a href="http://localhost:8080/login/success/profile"><span class="material-icons md-36" onclick="GoUserProfile()">account_circle</span></a></h3>
-      </div>
+      </div> -->
+      <!-- <li v-on:mouseover="dropDown.menu1 = true" v-on:mouseleave="dropDown.menu1 = false">
+        Menu1
+        <transition name="fade">
+          <ul v-if="dropDown.menu1" v-on:click="dropDown.menu1 = false">
+            <li>abc</li>
+            <li>abc</li>
+            <li>abc</li>
+            <li>abc</li>
+          </ul>
+        </transition>
+      </li> -->
       <!-- <div class="navbar-nav ml-auto" v-if="currentUser">
         <li class="nav-item">
           <a href="/profile" class="nav-link">
@@ -248,4 +264,84 @@ a{
   right: 10px;
   /* padding: 20px;
 } */
+
+.ba {
+  border-style: solid;
+  border-width: 1px;
+}
+
+.b--black-10 {
+  border-color: rgba(0, 0, 0, .1);
+}
+
+.br-100 {
+  border-radius: 100%;
+}
+
+.fw2 {
+  font-weight: 200;
+}
+
+.fw6 {
+  font-weight: 600;
+}
+
+.h3 {
+  height: 4rem;
+  margin-left: 100px;
+}
+
+.tracked {
+  letter-spacing: .1em;
+}
+
+.w3 {
+  width: 4rem;
+}
+
+.mid-gray {
+  color: #555;
+}
+
+.gray {
+  color: #777;
+}
+
+.pa1 {
+  padding: .25rem;
+}
+/* 
+.pv4 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+} */
+
+.tc {
+    text-align: center;
+}
+
+.ttu {
+    text-transform: uppercase;
+}
+
+.f5 {
+    font-size: 1rem;
+}
+
+.f6 {
+    font-size: .875rem;
+}
+
+@media screen and (min-width: 30em) {
+    .pv5-ns {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      margin-left: 1000px;
+    }
+
+    .f4-ns {
+      font-size: 1.25rem;
+    }
+}
+
 </style>
