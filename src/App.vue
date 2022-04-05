@@ -1,7 +1,9 @@
 <template>
   <nav class="navbar navbar-expand navbar-dark bg-dark">
       <a class="navbar-brand" href="http://localhost:8080">SemiColon</a>
-
+      <div class="profile">
+        <h3><a href="http://localhost:8080/login/success/profile"><span class="material-icons md-36" onclick="GoUserProfile()">account_circle</span></a></h3>
+      </div>
       <!-- <div class="navbar-nav ml-auto" v-if="currentUser">
         <li class="nav-item">
           <a href="/profile" class="nav-link">
@@ -145,10 +147,14 @@ footer p{
   width: 100%;
 }
 
-.material-icons {
-  /* bottom: -30px; */
-  position: relative;
+div .profile h3{
+  text-align: center;
+  margin-left: 1160px;
+  color: white;
+  flex: 0 1 auto;
+  margin-top: 5px;
 }
+
 /* 
 nav div a{
   text-align:center; 
@@ -179,6 +185,18 @@ a{
   color: white;
 }
 
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+    url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+    url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+}
+
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
@@ -191,14 +209,9 @@ a{
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
-  margin-top: 5px;
-  margin-right: 2px;
-  margin-bottom: 2px;
-  margin-left: 2px;
 
   /* Support for all WebKit browsers. */
   -webkit-font-smoothing: antialiased;
-
   /* Support for Safari and Chrome. */
   text-rendering: optimizeLegibility;
 
@@ -208,6 +221,21 @@ a{
   /* Support for IE. */
   font-feature-settings: 'liga';
 }
+
+/* Rules for sizing the icon. */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
 /* .navbar-expand-lg .navbar-collapse {
   position: absolute;
   top: 0;
