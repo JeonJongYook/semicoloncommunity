@@ -55,9 +55,9 @@
   <br/>
   <br/>
   <br/>
-  <!-- <footer class="mt-5 py-5 bg-dark text-white">
+  <footer class="mt-5 py-5 bg-dark text-white">
 		<p>&copy; CopyRight SemiColon</p>
-  </footer> -->
+  </footer>
 </template>
 
 <style scoped>  
