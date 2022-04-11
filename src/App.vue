@@ -1,66 +1,54 @@
 <template>
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <a class="navbar-brand" href="http://localhost:8080">SemiColon</a>
-      <header class="tc pv4 pv5-ns">
-        <img src="http://tachyons.io/img/logo.jpg" class="br-100 pa1 ba b--black-10 h3 w3" alt="avatar"><h4>Admin</h4>
+  <!-- <nav class="navbar navbar-expand navbar-dark bg-dark"> -->
+      <!-- <a class="navbar-brand" href="http://localhost:8080">SemiColon</a> -->
+      <!-- <header class="tc pv4 pv5-ns"> -->
+        <!-- <img src="http://tachyons.io/img/logo.jpg" class="br-100 pa1 ba b--black-10 h3 w3" alt="avatar"><h4>Admin</h4> -->
         <!-- <h1 class="f5 f4-ns fw6 mid-gray">Jasper Whitehouse</h1> -->
         <!-- <h2 class="f6 gray fw2 ttu tracked">Los Angeles</h2> -->
-      </header>
-      <!-- <div class="profile">
-        <h3><a href="http://localhost:8080/login/success/profile"><span class="material-icons md-36" onclick="GoUserProfile()">account_circle</span></a></h3>
-      </div> -->
-      <!-- <li v-on:mouseover="dropDown.menu1 = true" v-on:mouseleave="dropDown.menu1 = false">
-        Menu1
-        <transition name="fade">
-          <ul v-if="dropDown.menu1" v-on:click="dropDown.menu1 = false">
-            <li>abc</li>
-            <li>abc</li>
-            <li>abc</li>
-            <li>abc</li>
+      <!-- </header> -->
+      <!-- <nav class="mb-4 navbar navbar-expand-lg navbar-dark cyan">
+        <a class="navbar-brand font-bold" href="http://localhost:8080">SemiColon</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSuapportedContent-4">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="http://localhost:8080/login/success/setting"><i class="fa fa-gear"></i> 설정 </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> 내 프로필 </a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
+                  <a class="dropdown-item" href="#">계정</a>
+                  <a class="dropdown-item" href="http://localhost:8080/login">로그인</a>
+                </div>
+            </li>
           </ul>
-        </transition>
-      </li> -->
-      <!-- <div class="navbar-nav ml-auto" v-if="currentUser">
-        <li class="nav-item">
-          <a href="/profile" class="nav-link">
-            <font-awesome-icon icon="user" />
-            {{currentUser.username}}
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href class="nav-link" @click="logOut">
-            <font-awesome-icon icon="sign-out-alt" /> LogOut
-          </a>
-        </li>
-      </div> -->
+        </div>
+      </nav> -->
+      <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
+      <a class="navbar-brand" href="http://localhost:8080/">
+        SemiColon
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar-list-4">
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="http://localhost:8080/login/success/dashboard">대시보드</a>
+              <a class="dropdown-item" href="http://localhost:8080/login/success/profileedit">프로필 수정</a>
+              <a class="dropdown-item" href="http://localhost:8080/login">로그인</a>
+            </div>
+          </li>   
+        </ul>
+      </div>
     </nav>
-  <!-- <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="http://localhost:8080">SemiColon</a> -->
-        <!-- <notifications /> -->
-        
-        <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button> -->
-        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
-        <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0"> -->
-        <!--   <button @click="onClick()" variant="primary" text="FF" class="align-baseline"></button> Button Text Avatar -->
-          <!-- <li class="nav-item">
-            <router-link to="/">홈&nbsp;&nbsp;</router-link> 
-          </li> -->
-          <!-- <li class="nav-item">
-            <router-link to="/login"><span class="material-icons">login</span>로그인&nbsp;&nbsp;</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/register"><span class="material-icons">how_to_reg</span>회원가입</router-link>
-          </li> -->
-        <!-- </ul> -->
-        <!-- </div> -->
-      <!-- </div>
-    </nav>
-  </header> -->
+
   <router-view/>
   <br/>
   <br/>
@@ -143,7 +131,8 @@ footer p{
 
 .navbar-dark .navbar-brand {
   font-family: 'Dela Gothic One', cursive;
-  margin-left: 10px;
+  /* margin-left: 10px; */
+  font-size: 24px;
   /* font-family: 'IBM Plex Sans KR', sans-serif; */
 }
 
@@ -342,6 +331,34 @@ a{
     .f4-ns {
       font-size: 1.25rem;
     }
+}
+
+.hm-gradient {
+  background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
+}
+
+.navbar .dropdown-menu a:hover {
+color: #616161 !important;
+}
+
+.darken-grey-text {
+color: #2E2E2E;
+}
+
+.cyan {
+  background-color: black !important; 
+}
+
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+  font-size: 26px important;
+}
+
+.bg-custom-1 {
+  background-color: #85144b;
+}
+
+.bg-custom-2 {
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
 }
 
 </style>
