@@ -1,0 +1,3 @@
+# Netlify settings for single-page application
+<!-- /*(모든 요청) 에 대해 /index.html 로 redirect 한다. -->
+/*    /index.html   200

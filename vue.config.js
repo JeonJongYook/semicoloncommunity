@@ -4,8 +4,8 @@ module.exports = defineConfig({
 })
 
 module.exports = {
-  publicPath: '/semicoloncommunity',
-  outputDir: 'dist', // build 저장 파일 위치
+  // publicPath: '/semicoloncommunity',
+  // outputDir: 'dist', // build 저장 파일 위치
   css: {
       loaderOptions: {
           sass: {
