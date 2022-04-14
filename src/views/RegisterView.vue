@@ -67,21 +67,21 @@ export default {
       //   this.$refs.memberNickNameInput.focus();
       //   return;
       // }
-      if (this.memberEmail == "") {
-				confirm(["이메일을 입력해주세요!"]);
-				this.$refs.memberEmailInput.focus();
-			} else if (this.memberNickName == "") {
-				confirm(["닉네임을 입력해주세요!"]);
-				this.$refs.memberNickNameInput.focus();
-			} else if (this.memberId == "") {
-        confirm(["아이디를 입력해주세요!"]);
-        this.$refs.memberIdInput.focus();
-      } else if (this.memberPassword == "") {
-        alert("비밀번호를 입력해주세요!");
-        this.$refs.memberPasswordInput.focus();
-      }else {
-        confirm(["Error 404 : 관리자에게 문의해주세요."]);
-      }
+      // if (this.memberEmail == "") {
+			// 	confirm(["이메일을 입력해주세요!"]);
+			// 	this.$refs.memberEmailInput.focus();
+			// } else if (this.memberNickName == "") {
+			// 	confirm(["닉네임을 입력해주세요!"]);
+			// 	this.$refs.memberNickNameInput.focus();
+			// } else if (this.memberId == "") {
+      //   confirm(["아이디를 입력해주세요!"]);
+      //   this.$refs.memberIdInput.focus();
+      // } else if (this.memberPassword == "") {
+      //   alert("비밀번호를 입력해주세요!");
+      //   this.$refs.memberPasswordInput.focus();
+      // }else {
+      //   confirm(["Error 404 : 관리자에게 문의해주세요."]);
+      // }
 		},
 		doCancel() {
 			// this.$router.push('../');

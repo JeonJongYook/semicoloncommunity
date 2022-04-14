@@ -28,7 +28,7 @@
       </nav> -->
       <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
       <a class="navbar-brand" href="https://intecsemicolon.netlify.app">
-        IntecSemiColon
+        SemiColon
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
