@@ -27,7 +27,7 @@
         </div>
       </nav> -->
       <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
-      <a class="navbar-brand" href="http://localhost:8080/">
+      <a class="navbar-brand" href="http:///192.168.101.2:8080/">
         SemiColon
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,9 +40,9 @@
               <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="http://localhost:8080/login/success/dashboard">대시보드</a>
-              <a class="dropdown-item" href="http://localhost:8080/login/success/profileedit">프로필 수정</a>
-              <a class="dropdown-item" href="http://localhost:8080/login">로그인</a>
+              <a class="dropdown-item" href="http://192.168.101.2:8080/login/success/dashboard">대시보드</a>
+              <a class="dropdown-item" href="http://192.168.101.2:8080/login/success/profileedit">프로필 수정</a>
+              <a class="dropdown-item" href="http://192.168.101.2:8080/login">로그인</a>
             </div>
           </li>   
         </ul>
