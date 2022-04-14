@@ -1,27 +1,27 @@
-# semitest4
+# IntecSemiColon Sns Community
 
-## Project setup
+## 프로젝를 기초 설정하고 싶다면 아래 명령어를 입력하세요
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 컴파일 후 개발 서버를 실행 하고 싶다면 아래 명령어를 입력하세요
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### 컴파일하고 싶다면 아래 명령어를 입력하세요
 ```
 npm run build
 ```
 
-### Lints and fixes files
+### Lint하거나 파일을 수정하고 싶다면 아래 명령어를 입력하세요
 ```
 npm run lint
 ```
 
 ### Netlify 상태
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a8eb16bb-3005-47f8-8e59-af911b006af8/deploy-status)](https://app.netlify.com/sites/intecsemicolon/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6f1828f1-1bd3-4aad-a9b5-dd4844d71554/deploy-status)](https://app.netlify.com/sites/intecsemicolon/deploys)
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
