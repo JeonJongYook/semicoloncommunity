@@ -95,6 +95,10 @@ body {
   }
 }
 	
+.navbar-expand-sm .navbar-nav {
+  margin-left: auto;
+}
+
 /* footer{border-top:1px solid #35495e; text-align:center; font-size:16px; color:#41b883; margin:100px 0 0 0;} */
 footer p{
   text-align:center; 
@@ -337,6 +341,10 @@ a{
   background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
 }
 
+.navbar .dropdown-menu a {
+  font-weight: 800 !important;
+  font-family: "맑은 고딕" !important;
+}
 .navbar .dropdown-menu a:hover {
 color: #616161 !important;
 }
