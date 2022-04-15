@@ -222,7 +222,8 @@ div #label[for="userPassWord"]{
 	background: #D3D3D3; 
 	border-radius:40px;  
 	margin-top: 20px; 
-	width: 80%; 
+	/* width: 80%;  */
+	width: 30px; 
 	font-weight: bold; 
 	outline: none;
 }
@@ -231,7 +232,8 @@ div #label[for="userPassWord"]{
 	border-color:#0099d2 !important; 
 	background:#0099d2 !important; 
 	margin-top: 20px; 
-	width: 80%; 
+	/* width: 80%;  */
+	width: 30px; 
 	font-weight: bold;
 	border-radius:40px;
 }
