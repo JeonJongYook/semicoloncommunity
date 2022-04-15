@@ -3,8 +3,8 @@
     <h1>회원가입 페이지</h1>
     <br/>
   </div>
-  <br />
   <form class="userRegisterForm">
+    <br />
     <div>
       <label ref="memberEmail" for="userEmail">이메일 &nbsp;</label>
       <input v-on:keyup="setUserEmail" v-model="userEmail" id="userEmail" type="email" />
@@ -24,7 +24,7 @@
       <label ref="memberPassword" for="userPassWord">비밀번호 &nbsp;</label>
       <input v-on:keyup="setUserPassWord" v-model="userPassword" id="userPassword" type="password" />
     </div>
-  <br />
+    <br />
   </form>
   <br/>
   <br/>
