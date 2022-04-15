@@ -21,7 +21,7 @@ npm run lint
 ```
 
 ### Netlify 상태
-[![Netlify Status](https://api.netlify.com/api/v1/badges/965a8560-d6ce-45fa-8529-cfcc44af2ebf/deploy-status)](https://app.netlify.com/sites/inquisitive-caramel-500451/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/965a8560-d6ce-45fa-8529-cfcc44af2ebf/deploy-status)](https://app.netlify.com/sites/intecsemicolon/deploys)
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
