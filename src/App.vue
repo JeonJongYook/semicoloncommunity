@@ -1,27 +1,26 @@
 <template>
-      <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
-      <a class="navbar-brand" href="https://intecsemicolon.netlify.app">
-        SemiColon
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbar-list-4">
-        <ul class="navbar-nav">
-            <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" @click="fnDashboard">대시보드</a>
-              <a class="dropdown-item" @click="fnProfileEdit">프로필 수정</a>
-              <a class="dropdown-item" @click="fnLogin">로그인</a>
-            </div>
-          </li>   
-        </ul>
-      </div>
-    </nav>
-
+  <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
+    <a class="navbar-brand" @click="fnMain">
+      SemiColon
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar-list-4">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" @click="fnDashboard">대시보드</a>
+            <a class="dropdown-item" @click="fnProfileEdit">프로필 수정</a>
+            <a class="dropdown-item" @click="fnLogin">로그인</a>
+          </div>
+        </li>   
+      </ul>
+    </div>
+  </nav>
   <router-view/>
   <br/>
   <br/>
@@ -44,6 +43,9 @@ export default {
     },
     fnLogin() {
       this.$router.push('/login')
+    },
+    fnMain() {
+      this.$router.push('/main')
     }
   }
 }
@@ -123,9 +125,8 @@ footer p{
 
 .navbar-dark .navbar-brand {
   font-family: 'Dela Gothic One', cursive;
-  /* margin-left: 10px; */
-  font-size: 24px;
-  /* font-family: 'IBM Plex Sans KR', sans-serif; */
+  font-size: 26px;
+  color: white;
 }
 
 .navbar-dark .navbar-brand::after {

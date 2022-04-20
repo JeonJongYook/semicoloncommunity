@@ -1,13 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
 // import scoreStore from '@/store/modules/score.js';
 // import loginStore from '@/store/modules/login.js';
-import HomeView from '../views/HomeView.vue'
+import MainView from '../views/MainView.vue'
+import WelcomeView from '../views/WelcomeView.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'welcome',
+    component: WelcomeView
+  },
+  {
+    path: '/main',
+    name: 'main',
+    component: MainView
   },
   {
     path: '/login/success/profile',

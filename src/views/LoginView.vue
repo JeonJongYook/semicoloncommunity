@@ -16,7 +16,7 @@
                 <input type="checkbox" name="" id=""> 정보를 저장할까요?
                 </div>
                 <div class="forgot_pw">
-                <a href="http://localhost:8080/findpassword">비밀번호를 잊으셨나요?</a>
+                <a @click="fnFindPW">비밀번호를 잊으셨나요?</a>
 				</div>
             </div>
 			<div class="SubmitAccount">
@@ -126,6 +126,9 @@ export default {
 			this.$refs.memberPasswordInput.value = '';
 			this.$refs.memberIdInput.focus();
 		},
+		fnFindPW() {
+			this.$refs.memberIdInput && this.memberPasswordInput.trim();
+		}
 	},
 	mounted() {
 		this.$refs.memberIdInput.focus();
