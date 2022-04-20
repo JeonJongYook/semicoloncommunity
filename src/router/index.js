@@ -12,7 +12,8 @@ const routes = [
   {
     path: '/login/success/profile',
     name: 'UserProfile',
-    component:  () => import(/* webpackChunkName: "UserProfile" */ '../views/UsersProfile/ProfileView.vue')
+    component:  () => import(/* webpackChunkName: "UserProfile" */ '../views/UsersProfile/ProfileView.vue'),
+    meta: {authRequired: true}
   },
   {
     path: '/login',
@@ -22,12 +23,14 @@ const routes = [
   {
     path: '/login/success',
     name: 'loginSuccess',
-    component:  () => import(/* webpackChunkName: "loginSuccess" */ '../views/UserLoginSuccessView.vue')
+    component:  () => import(/* webpackChunkName: "loginSuccess" */ '../views/UserLoginSuccessView.vue'),
+    meta: {authRequired: true}
   },
   {
     path: '/login/success/setting',
     name: 'loginSetting',
-    component:  () => import(/* webpackChunkName: "userSetting" */ '../views/UserSettingsView.vue')
+    component:  () => import(/* webpackChunkName: "userSetting" */ '../views/UserSettingsView.vue'),
+    meta: {authRequired: true}
   },
   {
     path: '/register',
@@ -47,4 +50,4 @@ const router = createRouter({
   routes
 })
 
-export default router
+export default router;

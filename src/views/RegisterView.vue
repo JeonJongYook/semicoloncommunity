@@ -7,22 +7,22 @@
     <br />
     <div>
       <label ref="memberEmail" for="userEmail">이메일 &nbsp;</label>
-      <input v-on:keyup="setUserEmail" v-model="userEmail" id="userEmail" type="email" />
+      <input v-on:keyup="setUserEmail" v-model="userEmail" id="userEmail" type="email" required />
     </div>
     <br/>
     <div>
       <label ref="memberNickName" for="userNickName">닉네임 &nbsp;</label>
-      <input v-on:keyup="setUserNickName" v-model="userNickName" id="userNickName" type="text" />
+      <input v-on:keyup="setUserNickName" v-model="userNickName" id="userNickName" type="text" required />
     </div>
     <br/>
     <div>
       <label ref="memberId" for="userId">아이디 &nbsp;</label>
-      <input v-on:keyup="setUserID" v-model="userId" id="userId" type="text" />
+      <input v-on:keyup="setUserID" v-model="userId" id="userId" type="text" required />
     </div>
     <br/>
     <div>
       <label ref="memberPassword" for="userPassWord">비밀번호 &nbsp;</label>
-      <input v-on:keyup="setUserPassWord" v-model="userPassword" id="userPassword" type="password" />
+      <input v-on:keyup="setUserPassWord" v-model="userPassword" id="userPassword" type="password" required />
     </div>
     <br />
   </form>

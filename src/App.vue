@@ -1,31 +1,4 @@
 <template>
-  <!-- <nav class="navbar navbar-expand navbar-dark bg-dark"> -->
-      <!-- <a class="navbar-brand" href="http://localhost:8080">SemiColon</a> -->
-      <!-- <header class="tc pv4 pv5-ns"> -->
-        <!-- <img src="http://tachyons.io/img/logo.jpg" class="br-100 pa1 ba b--black-10 h3 w3" alt="avatar"><h4>Admin</h4> -->
-        <!-- <h1 class="f5 f4-ns fw6 mid-gray">Jasper Whitehouse</h1> -->
-        <!-- <h2 class="f6 gray fw2 ttu tracked">Los Angeles</h2> -->
-      <!-- </header> -->
-      <!-- <nav class="mb-4 navbar navbar-expand-lg navbar-dark cyan">
-        <a class="navbar-brand font-bold" href="http://localhost:8080">SemiColon</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSuapportedContent-4">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="http://localhost:8080/login/success/setting"><i class="fa fa-gear"></i> 설정 </a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> 내 프로필 </a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
-                  <a class="dropdown-item" href="#">계정</a>
-                  <a class="dropdown-item" href="http://localhost:8080/login">로그인</a>
-                </div>
-            </li>
-          </ul>
-        </div>
-      </nav> -->
       <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
       <a class="navbar-brand" href="https://intecsemicolon.netlify.app">
         SemiColon
@@ -40,9 +13,9 @@
               <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="https://intecsemicolon.netlify.app/login/success/dashboard">대시보드</a>
-              <a class="dropdown-item" href="https://intecsemicolon.netlify.app/login/success/profileedit">프로필 수정</a>
-              <a class="dropdown-item" href="https://intecsemicolon.netlify.app/login">로그인</a>
+              <a class="dropdown-item" @click="fnDashboard">대시보드</a>
+              <a class="dropdown-item" @click="fnProfileEdit">프로필 수정</a>
+              <a class="dropdown-item" @click="fnLogin">로그인</a>
             </div>
           </li>   
         </ul>
@@ -60,6 +33,21 @@
   </footer>
 </template>
 
+<script>
+export default {
+  methods: {
+    fnDashboard() {
+      this.$router.push('/login/success/dashboard')
+    },
+    fnProfileEdit() {
+      this.$router.push('/login/success/profileEdit')
+    },
+    fnLogin() {
+      this.$router.push('/login')
+    }
+  }
+}
+</script>
 <style scoped>  
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
