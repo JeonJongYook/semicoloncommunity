@@ -146,8 +146,8 @@ export default {
 div .login { background-color: white; }
 
 .login { 
-	width:800px; 
-	margin:20px auto;
+	width: 800px; 
+	margin: 20px auto;
 }
 .login h1 { 
 	text-align: center; 

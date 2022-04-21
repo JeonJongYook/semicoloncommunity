@@ -110,7 +110,7 @@ footer p{
   font-family: 'Dongle', sans-serif;
 }
 
-.navbar-collapse::after {
+/* .navbar-collapse::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -120,9 +120,9 @@ footer p{
   height: 4px;
   background: #f1c40f;
   transition: all .5s ease-out;
-}
+} */
 
-.navbar-collapse::hover::after {
+.navbar-collapse:hover::after {
   width: 100%;
 }
 
@@ -132,7 +132,7 @@ footer p{
   color: white;
 }
 
-.navbar-dark .navbar-brand::after {
+/* .navbar-dark .navbar-brand::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -142,9 +142,9 @@ footer p{
   height: 4px;
   background: #f1c40f;
   transition: all .5s ease-out;
-}
+} */
 
-.navbar-dark .navbar-brand::hover::after {
+.navbar-dark .navbar-brand:hover::after {
   width: 100%;
 }
 

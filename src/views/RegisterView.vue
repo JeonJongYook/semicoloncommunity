@@ -1,105 +1,135 @@
-<template>
-  <div class="RegisterView">
-    <h1>회원가입 페이지</h1>
-    <br/>
-  </div>
-  <form class="userRegisterForm">
-    <br />
-    <div>
-      <label ref="memberEmail" for="userEmail">이메일 &nbsp;</label>
-      <input v-on:keyup="setUserEmail" v-model="userEmail" id="userEmail" type="email" required />
-    </div>
-    <br/>
-    <div>
-      <label ref="memberNickName" for="userNickName">닉네임 &nbsp;</label>
-      <input v-on:keyup="setUserNickName" v-model="userNickName" id="userNickName" type="text" required />
-    </div>
-    <br/>
-    <div>
-      <label ref="memberId" for="userId">아이디 &nbsp;</label>
-      <input v-on:keyup="setUserID" v-model="userId" id="userId" type="text" required />
-    </div>
-    <br/>
-    <div>
-      <label ref="memberPassword" for="userPassWord">비밀번호 &nbsp;</label>
-      <input v-on:keyup="setUserPassWord" v-model="userPassword" id="userPassword" type="password" required />
-    </div>
-    <br />
-  </form>
-  <br/>
-  <br/>
-  <div class="ConfirmAccount">
-    <span>계정이 있으시다면&nbsp;<router-link to="/login">로그인</router-link>하러가기</span>
-  </div>
-  <p class="buttons">
-    <button @click.prevent="doSubmit" class="button blue" id="submitButton">회원가입</button>
-    <button @click.prevent="doCancel" class="button">취소</button>
-  </p>
+<template lang="ko">
+	<div class="RegisterView">
+		<h1>SemiColon</h1>
+		<br/>
+		<form class="Register">
+      <p>
+				<label for="memberEmailInput" pattern="^(?=.*\d)(?=.*[a-z]).{8,15}">이메일</label>
+				<input type="password" id="memberPasswordInput" class="input_text" ref="memberPasswordInput" v-model.trim="memberPassword" placeholder="사용하실 이메일을 입력하세요." />
+			</p>
+      <p>
+				<label for="memberNicknameInput" pattern="^(?=.*\d)(?=.*[a-z]).{8,15}">닉네임</label>
+				<input type="password" id="memberPasswordInput" class="input_text" ref="memberPasswordInput" v-model.trim="memberPassword" placeholder="사용하실 닉네임을 입력하세요." />
+			</p>
+			<p>
+				<label for="memberIdInput" pattern="^(?=.*\d)(?=.*[a-z]).{5,15}">아이디</label>&nbsp;
+				<input type="text" id="memberIdInput" class="input_text" ref="memberIdInput" v-model.trim="memberId" placeholder="사용하실 아이디를 입력하세요." />
+			</p>
+			<p>
+				<label for="memberPasswordInput" pattern="^(?=.*\d)(?=.*[a-z]).{8,15}">비밀번호</label>
+				<input type="password" id="memberPasswordInput" class="input_text" ref="memberPasswordInput" v-model.trim="memberPassword" placeholder="사용하실 비밀번호를 입력하세요." />
+			</p>
+			<div class="submit_etc">
+        <div class="checkbox">
+          <input type="checkbox" name="SessionSave" id="SessionSave"> 정보를 저장할까요?
+        </div>
+        <div class="forgot_account">
+          <a @click="fnFindId" class="findId">아이디</a> 혹은 <a @click="fnFindPW" class="findPw">비밀번호</a>를 잊으셨나요?
+				</div>
+      </div>
+			<div class="SubmitAccount">
+				<span>만약 계정이 없다면, <router-link to="/register">회원가입</router-link>을 먼저 진행해주세요!</span>
+			</div>
+			<p class="buttons">
+				<button @click.prevent="checkAll" class="button blue" name="SubmitButton" id="SubmitButton">가입하기</button>
+				<button @click.prevent="doCancel" class="button" name="cancelButton" id="cancelButton">취소</button>
+			</p>
+		</form>
+		<p>{{ errorMessage }}</p>
+	</div>
 </template>
 
 <script>
-
 export default {
-	name: 'joinPage',
-  data : function() {
+	name: 'LoginForm',
+	data : function() {
 		return {
 			memberEmail : '',
-			memberNickName : '',
+			memberNickname : '',
 			memberId : '',
 			memberPassword : '',
 			errorMessage : ''
 		};
 	},
-  methods : {
-		doSubmit() {
-			// if (this.memberId == "") {
-			// 	confirm(["아이디를 입력해주세요!"]);
-			// 	this.$refs.memberIdInput.focus();
-			// 	return;
-			// } else if (this.memberPassword == "") {
-			// 	confirm(["비밀번호를 입력해주세요!"]);
-			// 	this.$refs.memberPasswordInput.focus();
-			// 	return;
-			// } else if (this.memberEmail == "") {
-      //   confirm(["이메일을 입력해주세요!"]);
-      //   this.$refs.memberEmailInput.focus();
-      //   return;
-      // } else if (this.memberNickName == "") {
-      //   confirm(["닉네임을 입력해주세요!"]);
-      //   this.$refs.memberNickNameInput.focus();
-      //   return;
-      // }
-      // if (this.memberEmail == "") {
-			// 	confirm(["이메일을 입력해주세요!"]);
-			// 	this.$refs.memberEmailInput.focus();
-			// } else if (this.memberNickName == "") {
-			// 	confirm(["닉네임을 입력해주세요!"]);
-			// 	this.$refs.memberNickNameInput.focus();
-			// } else if (this.memberId == "") {
-      //   confirm(["아이디를 입력해주세요!"]);
-      //   this.$refs.memberIdInput.focus();
-      // } else if (this.memberPassword == "") {
-      //   alert("비밀번호를 입력해주세요!");
-      //   this.$refs.memberPasswordInput.focus();
-      // }else {
-      //   confirm(["Error 404 : 관리자에게 문의해주세요."]);
-      // }
+	methods : {
+        // checkAll() {
+        //     if (!this.checkUserId(this.$refs.memberIdInput.value)) {
+        //         return false;
+        //     } else if (!this.checkPassword(this.$refs.memberIdInput.value, this.$refs.memberPasswordInput.value)) {
+        //         return false;
+        //     } else {
+        //         return true;
+        //     }
+        // },
+      checkExistData() {
+          if (this.memberId == "") {
+            alert("아이디를 입력해주세요!");
+            this.$refs.memberIdInput.focus();
+            return true;
+          } else if (this.memberPassword == "") {
+            alert("비밀번호를 입력해주세요!");
+            this.$refs.memberPasswordInput.focus();
+            return true;
+          } else if (this.memberPassword == "") {
+            alert("비밀번호를 입력해주세요!");
+            this.$refs.memberPasswordInput.focus();
+            return true;
+      },
+        // checkUserId(id) {
+        //     if(!this.checkExistData(id, "아이디를"))
+        //     return false;
+
+        //     var idRegExp = /^[a-zA-z0-9]{8,16}$/;
+        //     if(!idRegExp.text(id)) {
+        //         alert("아이디는 영문 대소문자와 숫자 8~16자리로 입력해야 합니다.");
+        //         this.$refs.memberIdInput.value == "";
+        //         this.$refs.memberIdInput.value.focus();
+        //         return false;
+        //     }
+        //     return true;
+        // },
+        // checkPassword(id, password1) {
+        //     if (!this.checkExistData(password1, "비밀번호를"))
+        //     return false;
+
+        //     var password1RegExp = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^*+=-]).{6,16}$/;
+        //     if (!password1RegExp.test(password1)) {
+        //         alert("비밀번호는 영문 대소문자와 숫자 4~12자리로 입력해야합니다!");
+        //         this.$refs.memberPasswordInput.value = "";
+        //         this.$refs.memberPasswordInput.focus();
+        //         return false;
+        //     }
+
+        //     if (id == password1) {
+        //         alert("아이디와 비밀번호는 같을 수 없습니다!");
+        //         this.$refs.memberPasswordInput.value = "";
+        //         this.$refs.memberPasswordInput.focus();
+        //         return false;
+        //     }
+        //     return true;
+        // },
+		doLogin() {
+			if (this.memberId == "") {
+				alert("아이디를 입력해주세요!");
+				this.$refs.memberIdInput.focus();
+				return true;
+			} else if (this.memberPassword == "") {
+				alert("비밀번호를 입력해주세요!");
+				this.$refs.memberPasswordInput.focus();
+				return true;
+            } 
 		},
 		doCancel() {
-			// this.$router.push('../');
-			this.$refs.memberEmailInput.value = '';
-			this.$refs.memberNickNameInput.value = '';
 			this.$refs.memberIdInput.value = '';
+			this.$refs.memberEmailInput.value = '';
 			this.$refs.memberPasswordInput.value = '';
+			this.$refs.memberNicknameInput.value = '';
 			this.$refs.memberEmailInput.focus();
 		},
-		// IDshowError() {
-		// 	const options = {title: '경고', size: 'sm'}
-		// 	this.$dialogs.alert('아이디를 입력해주세요!', options)
-		// 	.then(res => {
-		// 		console.log(res)
-		// 	});
-		// }
+		fnFindPW() {
+			// this.$refs.memberIdInput && this.memberPasswordInput.trim();
+			this.$router.push('/findPW')
+		}
 	},
 	mounted() {
 		this.$refs.memberEmailInput.focus();
@@ -109,100 +139,52 @@ export default {
 
 <style scoped>
 /* Google Fonts Import */
-
-@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 /* Import End */
 
-/*.joinInput {width: 300px; height: 25px;}*/
-/*.container-fluid {width: 50%;}*/
-
-div .RegisterView {
-  text-align: center; 
+div .RegisterView { 
+  background-color: white; 
 }
 
-div .userRegisterForm {
-  text-align: center;
-  font-family: 'Jua', sans-serif;
-  border-radius: 30px;
-  margin-top: 10px;
-	padding: 0 20px;
+.RegisterView { 
+	width: 800px; 
+	margin: 20px auto;
+}
+
+.RegisterView h1 { 
+	text-align: center; 
+	font-family: 'Black Han Sans', sans-serif; 
+}
+
+.Register { 
+	margin: auto; 
+	text-align: left;
+}
+
+.Register p > label { 
+	display: inline-block; 
+	font-size: 24px; 
+	padding-right: 16px;
+	align-items: center; 
+	font-family: 'Black Han Sans', sans-serif; 
+}
+
+.Register p > .input_text { 
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	font-family: 'Jua', sans-serif;
+	border-radius: 30px;
+	margin-top: 10px;
 	outline: none;
-  font-size: 22px;
+	font-size: 22px;
+	align-items: center;
 }
 
-div .RegisterView h1{
-  margin-top: 30px;
-  font-family: 'Jua', sans-serif;
-  text-align: center;
-  font-size: 34px;
+.Register p > .input_text:focus { 
+	font-size: 160%;
 }
-
-div .ConfirmAccount {
-  font-family: 'Jua', sans-serif;
-  text-align: center;
-  font-size: 18px;
-}
-
-div #userEmail {
-  text-align: center;
-  border-radius: 30px;
-  width: 30%;
-}
-
-div #userNickName {
-  text-align: center;
-  border-radius: 30px;
-}
-
-div #userId {
-  text-align: center;
-  border-radius: 30px;
-}
-
-div #userPassword {
-  text-align: center;
-  border-radius: 30px;
-}
-
-div #label[for="userEmail"]{
-  position:absolute; 
-  text-align: center;
-  font-family: 'Dongle', sans-serif;
-  margin-top: 10px;
-	padding: 0 20px;
-	outline: none;
-  font-size: 20px;
-}
-div #label[for="userNickName"]{
-  position:absolute; 
-  text-align: center;
-  font-family: 'Dongle', sans-serif;
-  margin-top: 10px;
-	padding: 0 20px;
-	outline: none;
-  font-size: 20px;
-}
-div #label[for="userId"]{
-  position:absolute; 
-  text-align: center;
-  font-family: 'Dongle', sans-serif;
-  margin-top: 10px;
-	padding: 0 20px;
-	outline: none;
-  font-size: 20px;
-}
-div #label[for="userPassWord"]{
-  position:absolute; 
-  text-align: center;
-  font-family: 'Dongle', sans-serif;
-  margin-top: 10px;
-	padding: 0 20px;
-	outline: none;
-  font-size: 20px;
-}
-
 
 .buttons { 
 	position:relative; 
@@ -210,7 +192,7 @@ div #label[for="userPassWord"]{
 	margin-top:20px; 
 	text-align: center;
 }
-/* .buttons > .button { overflow:visible; cursor:pointer; min-width:125px; height:32px; margin:0 2px; padding:0 15px; line-height:32px; font-size:14px; border:1px solid #dfdfdf; background:#fff; border-radius:10px;  margin-top: 20px; width: 80%; font-weight: bold; } */
+
 .buttons > .button { 
 	overflow: visible; 
 	cursor: pointer; 
@@ -218,27 +200,67 @@ div #label[for="userPassWord"]{
 	height: 40px;
 	margin:0 2px; 
 	padding:0 15px; 
-	line-height:32px; 
+	line-height: 32px; 
 	font-size: 1.2em;
 	border: 0;
-	/* border:1px solid #dfdfdf;  */
 	background: #D3D3D3; 
-	border-radius:40px;  
-	margin-top: 20px; 
-	/* width: 80%;  */
-	width: 30px; 
+	border-radius: 40px;  
+	margin-top: 20px;
+	margin-left: 10px;
+	width: 80%; 
 	font-weight: bold; 
 	outline: none;
 }
+
 .buttons > .button.blue { 
 	color:#fff; 
 	border-color:#0099d2 !important; 
 	background:#0099d2 !important; 
 	margin-top: 20px; 
-	/* width: 80%;  */
-	width: 30px; 
+	align-items: center;
+	width: 80%; 
 	font-weight: bold;
-	border-radius:40px;
+	border-radius: 40px;
 }
 
+.submit_etc {
+  padding: 12px;
+  width: 100%;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  text-align: center;
+  margin-left: 10px;
+}
+
+.submit_etc .checkbox {
+  font-size: 18px;
+}
+
+
+div .SubmitAccount {
+  padding: 12px;
+	width: 100%;
+	font-size: 16px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-weight: bold;
+	text-align: center;
+	margin-left: 10px;
+}
+
+.SubmitAccount span {
+  font-size: 18px;
+}
+
+.forgot_account .findId {
+	font-size: 18px;
+}
+
+.forgot_account .findPw {
+	font-size: 18px;
+}
 </style>
