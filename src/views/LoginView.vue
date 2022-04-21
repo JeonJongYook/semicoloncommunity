@@ -24,8 +24,8 @@
 			</div>
 			<p class="buttons">
 				<!-- <button @click.prevent="doLogin" class="button blue" id="loginButton">로그인</button> -->
-				<button @click.prevent="checkAll" class="button blue" id="loginButton">로그인</button>
-				<button @click.prevent="doCancel" class="button">취소</button>
+				<button @click.prevent="checkAll" class="button blue" name="loginButton" id="loginButton">로그인</button>
+				<button @click.prevent="doCancel" class="button" name="cancelButton" id="cancelButton">취소</button>
 			</p>
 		</form>
 		<p>{{ errorMessage }}</p>
