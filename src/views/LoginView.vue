@@ -127,7 +127,8 @@ export default {
 			this.$refs.memberIdInput.focus();
 		},
 		fnFindPW() {
-			this.$refs.memberIdInput && this.memberPasswordInput.trim();
+			// this.$refs.memberIdInput && this.memberPasswordInput.trim();
+			this.$router.push('/findPW')
 		}
 	},
 	mounted() {
@@ -153,31 +154,30 @@ div .login { background-color: white; }
 	font-family: 'Black Han Sans', sans-serif; 
 }
 .LoginForm { 
-	width:400px; 
-	margin:auto; 
+	margin: auto; 
 	text-align: left;
 }
 .LoginForm p > label { 
-	display:inline-block; 
-	font-size:18px; 
-	padding-right:16px; 
+	display: inline-block; 
+	font-size: 24px; 
+	padding-right: 16px;
+	align-items: center; 
 	font-family: 'Black Han Sans', sans-serif; 
 }
-/* .LoginForm p > .input_text { width:200px; font-size:16px; height:32px; } */
 .LoginForm p > .input_text { 
 	width: 100%;
 	height: 50px;
-	border-radius: 30px;
-	margin-top: 10px;
-	padding: 0px 20px;
-	outline: none;
 	text-align: center;
 	font-family: 'Jua', sans-serif;
 	border-radius: 30px;
 	margin-top: 10px;
-	padding: 0px 20px;
 	outline: none;
 	font-size: 22px;
+	align-items: center;
+}
+
+.LoginForm p > .input_text:focus { 
+	font-size: 160%;
 }
 
 .buttons { 
@@ -194,13 +194,14 @@ div .login { background-color: white; }
 	height: 40px;
 	margin:0 2px; 
 	padding:0 15px; 
-	line-height:32px; 
+	line-height: 32px; 
 	font-size: 1.2em;
 	border: 0;
 	/* border:1px solid #dfdfdf;  */
 	background: #D3D3D3; 
-	border-radius:40px;  
-	margin-top: 20px; 
+	border-radius: 40px;  
+	margin-top: 20px;
+	margin-left: 10px;
 	width: 80%; 
 	font-weight: bold; 
 	outline: none;
@@ -211,15 +212,16 @@ div .login { background-color: white; }
 	border-color:#0099d2 !important; 
 	background:#0099d2 !important; 
 	margin-top: 20px; 
+	align-items: center;
 	width: 80%; 
 	font-weight: bold;
-	border-radius:40px;
+	border-radius: 40px;
 }
 
 .login_etc {
   padding: 12px;
   width: 100%;
-  font-size: 14px;
+  font-size: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -231,7 +233,7 @@ div .login { background-color: white; }
 div .SubmitAccount {
 	padding: 12px;
 	width: 100%;
-	font-size: 14px;
+	font-size: 16px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;

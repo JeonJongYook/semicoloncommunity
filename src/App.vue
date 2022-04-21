@@ -46,6 +46,9 @@ export default {
     },
     fnMain() {
       this.$router.push('/main')
+    },
+    fnWelcome() {
+      this.$router.push('/welcome')
     }
   }
 }
