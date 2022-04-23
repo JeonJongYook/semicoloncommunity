@@ -13,18 +13,32 @@
 			</p>
 			<div class="login_etc">
                 <div class="checkbox">
-                <input type="checkbox" name="" id=""> 정보를 저장할까요?
+                <input type="checkbox" name="savesession" id="savesession"> 정보를 저장할까요?
                 </div>
-                <div class="forgot_pw">
-                <a @click="fnFindPW">비밀번호를 잊으셨나요?</a>
+				<br />
+                <div class="forgot_account">
+                <a @click="fnFindId"> 아이디 </a> 혹은 <a @click="fnFindPw"> 비밀번호를 </a>잊으셨나요?
 				</div>
             </div>
+			<br />
 			<div class="SubmitAccount">
 				<span>만약 계정이 없다면, <router-link to="/register">회원가입</router-link>을 먼저 진행해주세요!</span>
 			</div>
 			<p class="buttons">
 				<!-- <button @click.prevent="doLogin" class="button blue" id="loginButton">로그인</button> -->
 				<button @click.prevent="checkAll" class="button blue" name="loginButton" id="loginButton">로그인</button>
+				<!-- 컴포넌트 MyModal -->
+				<MyModal @close="closeModal" v-if="modal">
+					<!-- default 슬롯 콘텐츠 -->
+					<p>Vue.js Modal Window!</p>
+					<div><input v-model="message"></div>
+					<!-- /default -->
+					<!-- footer 슬롯 콘텐츠 -->
+				<template slot="footer">
+					<button @click="doSend">제출</button>
+				</template>
+				<!-- /footer -->
+				</MyModal>
 				<button @click.prevent="doCancel" class="button" name="cancelButton" id="cancelButton">취소</button>
 			</p>
 		</form>
@@ -33,16 +47,26 @@
 </template>
 
 <script>
+import MyModal from '../assets/Modals/MyModal.vue'
+
 export default {
+	components: { MyModal },
 	name: 'LoginForm',
 	data : function() {
 		return {
+			modal: false,
 			memberId : '',
 			memberPassword : '',
 			errorMessage : ''
 		};
 	},
 	methods : {
+		openModal() {
+			this.modal = true
+		},
+		closeModal() {
+			this.modal = false
+		},
         checkAll() {
             if (!this.checkUserId(this.$refs.memberIdInput.value)) {
                 return false;
@@ -113,11 +137,8 @@ export default {
 				return true;
                 
             } else if (this.memberId == "admin1234" && this.memberPassword == "admin1234!") {
-                // var link = 'localhost:8080/login/success';
                 alert(this.memberId + "님 환영합니다.");
                 return true;
-                // window.location.href("https://localhost:8080/login/successs");
-                // window.open(link, 'admin로그인 성공', '_self');
             }
             return false;
 		},
@@ -126,9 +147,13 @@ export default {
 			this.$refs.memberPasswordInput.value = '';
 			this.$refs.memberIdInput.focus();
 		},
-		fnFindPW() {
+		fnFindId() {
 			// this.$refs.memberIdInput && this.memberPasswordInput.trim();
-			this.$router.push('/findPW')
+			this.$router.push('/findId')
+		},
+		fnFindPw() {
+			// this.$refs.memberIdInput && this.memberPasswordInput.trim();
+			this.$router.push('/findPw')
 		}
 	},
 	mounted() {

@@ -1,0 +1,81 @@
+{
+         checkAll() {
+             if (!this.checkUserId(this.$refs.memberIdInput.value)) {
+                 return false;
+             } else if (!this.checkPassword(this.$refs.memberIdInput.value, this.$refs.memberPasswordInput.value)) {
+                 return false;
+             } else {
+                 return true;
+             }
+         },
+      checkExistData() {
+          if (this.memberId == ) {
+            alert(아이디를 입력해주세요!);
+            this.$refs.memberIdInput.focus();
+            return true;
+          } else if (this.memberPassword == ) {
+            alert(비밀번호를 입력해주세요!);
+            this.$refs.memberPasswordInput.focus();
+            return true;
+          } else if (this.memberPassword == ) {
+            alert(비밀번호를 입력해주세요!);
+            this.$refs.memberPasswordInput.focus();
+            return true;
+		  }
+      	}
+        checkUserId(id) {
+            if(!this.checkExistData(id, 아이디를))
+            return false;
+
+            var idRegExp = ^[a-zA-z0-9]{8,16}$;
+            if(!idRegExp.text(id)) {
+                alert(아이디는 영문 대소문자와 숫자 8~16자리로 입력해야 합니다.);
+                this.$refs.memberIdInput.value == ;
+                this.$refs.memberIdInput.value.focus();
+                return false;
+            }
+            return true;
+        },
+        checkPassword(id, password1) {
+            if (!this.checkExistData(password1, 비밀번호를))
+            return false;
+
+            var password1RegExp = ^(=.[a-zA-Z])(=.[0-9])(=.[!@#$%^+=-]).{6,16}$;
+            if (!password1RegExp.test(password1)) {
+                alert(비밀번호는 영문 대소문자와 숫자 4~12자리로 입력해야합니다!);
+                this.$refs.memberPasswordInput.value = ;
+                this.$refs.memberPasswordInput.focus();
+                return false;
+            }
+
+            if (id == password1) {
+                alert(아이디와 비밀번호는 같을 수 없습니다!);
+                this.$refs.memberPasswordInput.value = ;
+                this.$refs.memberPasswordInput.focus();
+                return false;
+            }
+            return true;
+        },
+		doLogin() {
+			if (this.memberId == ) {
+				alert(아이디를 입력해주세요!);
+				this.$refs.memberIdInput.focus();
+				return true;
+			} else if (this.memberPassword == ) {
+				alert(비밀번호를 입력해주세요!);
+				this.$refs.memberPasswordInput.focus();
+				return true;
+            } 
+		},
+		doCancel() {
+			this.$refs.memberIdInput.value = '';
+			this.$refs.memberEmailInput.value = '';
+			this.$refs.memberPasswordInput.value = '';
+			this.$refs.memberNicknameInput.value = '';
+			this.$refs.memberEmailInput.focus();
+		},
+		fnFindPW() {
+			 this.$refs.memberIdInput && this.memberPasswordInput.trim();
+			this.$router.push('findPW')
+		}
+	},

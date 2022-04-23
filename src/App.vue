@@ -22,11 +22,7 @@
     </div>
   </nav>
   <router-view/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
+  <div class="margin-footer"></div>
   <footer class="mt-5 py-5 bg-dark text-white">
 		<p>&copy; CopyRight SemiColon</p>
   </footer>
@@ -359,6 +355,10 @@ color: #2E2E2E;
 
 .bg-custom-2 {
   background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+}
+
+div .margin-footer {
+  margin-top: 300px !important;
 }
 
 </style>
