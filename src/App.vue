@@ -29,6 +29,7 @@
 </template>
 
 <script>
+
 export default {
   methods: {
     fnDashboard() {
@@ -49,6 +50,7 @@ export default {
   }
 }
 </script>
+
 <style scoped>  
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');

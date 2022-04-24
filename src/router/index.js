@@ -1,6 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-// import scoreStore from '@/store/modules/score.js';
-// import loginStore from '@/store/modules/login.js';
 import MainView from '../views/MainView.vue'
 import WelcomeView from '../views/WelcomeView.vue'
 

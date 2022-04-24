@@ -1,4 +1,11 @@
 <template lang="ko">
+	<div class="black-bg" v-show="is_show">
+		<div class="white-bg">
+			<h4>안녕</h4>
+			<p>상세페이지 내용</p>
+			<button @click="handle_toggle" type="button">모달창 닫기</button>
+		</div>
+	</div>
 	<div class="login">
 		<h1>SemiColon</h1>
 		<br/>
@@ -26,47 +33,32 @@
 			</div>
 			<p class="buttons">
 				<!-- <button @click.prevent="doLogin" class="button blue" id="loginButton">로그인</button> -->
-				<button @click.prevent="checkAll" class="button blue" name="loginButton" id="loginButton">로그인</button>
-				<!-- 컴포넌트 MyModal -->
-				<MyModal @close="closeModal" v-if="modal">
-					<!-- default 슬롯 콘텐츠 -->
-					<p>Vue.js Modal Window!</p>
-					<div><input v-model="message"></div>
-					<!-- /default -->
-					<!-- footer 슬롯 콘텐츠 -->
-				<template slot="footer">
-					<button @click="doSend">제출</button>
-				</template>
-				<!-- /footer -->
-				</MyModal>
-				<button @click.prevent="doCancel" class="button" name="cancelButton" id="cancelButton">취소</button>
+				<button @click="checkExistData" class="button blue" name="loginButton" id="loginButton">로그인</button>
+				<button @click="doCancel" class="button">취소</button>
 			</p>
 		</form>
-		<p>{{ errorMessage }}</p>
 	</div>
+
 </template>
 
 <script>
-import MyModal from '../assets/Modals/MyModal.vue'
 
 export default {
-	components: { MyModal },
 	name: 'LoginForm',
 	data : function() {
 		return {
-			modal: false,
+			TotalmodalStatus: false,	// 모든 modal 상태 저장
+			LoginmodalStatus: false,	//  로그인 버튼 클릭 시
+			CancelmodalStatus: false,	//  취소 버튼 클릭 시
+			IdmodalStatus: false,		// Id 입력 요구 Modal
+			PwmodalStatus: false,		// Pw 입력 요구 Modal
+			is_show: false,
 			memberId : '',
 			memberPassword : '',
-			errorMessage : ''
+			errorMessage : '',
 		};
 	},
 	methods : {
-		openModal() {
-			this.modal = true
-		},
-		closeModal() {
-			this.modal = false
-		},
         checkAll() {
             if (!this.checkUserId(this.$refs.memberIdInput.value)) {
                 return false;
@@ -88,7 +80,6 @@ export default {
 				return true;
             } else if (this.memberId == "admin1234" && this.memberPassword == "admin1234!") {
                 alert(this.memberId + "님 환영합니다.");
-                window.open('localhost:8080/login/success', 'admin로그인 성공', '_self');
                 return true;
             } 
             return false;
@@ -154,7 +145,7 @@ export default {
 		fnFindPw() {
 			// this.$refs.memberIdInput && this.memberPasswordInput.trim();
 			this.$router.push('/findPw')
-		}
+		},
 	},
 	mounted() {
 		this.$refs.memberIdInput.focus();
@@ -167,6 +158,29 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 /* Import End */
+
+body {
+	margin: 0
+}
+
+div {
+	box-sizing: border-box;
+}
+
+.black-bg {
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	padding: 20px;
+}
+
+.white-bg {
+	width: 100%;
+	background: white;
+	border-radius: 8px;
+	padding: 20px;
+}
 
 div .login { background-color: white; }
 
