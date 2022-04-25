@@ -42,6 +42,12 @@
 </template>
 
 <script>
+import UserInfoJSON from "@/assets/UserInfo/Admin.json"; 
+const data = UserInfoJSON; 
+const name = data.name;
+const id = data.id;
+const pw = data.password;
+
 
 export default {
 	name: 'LoginForm',
@@ -56,6 +62,10 @@ export default {
 			memberId : '',
 			memberPassword : '',
 			errorMessage : '',
+			data : data,
+			name : name,
+			id : id,
+			pw : pw
 		};
 	},
 	methods : {
@@ -78,8 +88,9 @@ export default {
 				alert("비밀번호를 입력해주세요!");
 				this.$refs.memberPasswordInput.focus();
 				return true;
-            } else if (this.memberId == "admin1234" && this.memberPassword == "admin1234!") {
+            } else if (this.memberId == this.id && this.memberPassword == this.pw ) {
                 alert(this.memberId + "님 환영합니다.");
+				this.$router.push("/login/success/")
                 return true;
             } 
             return false;
@@ -127,7 +138,7 @@ export default {
 				this.$refs.memberPasswordInput.focus();
 				return true;
                 
-            } else if (this.memberId == "admin1234" && this.memberPassword == "admin1234!") {
+            } else if (this.memberId == this.id && this.memberPassword == this.pw) {
                 alert(this.memberId + "님 환영합니다.");
                 return true;
             }
@@ -216,7 +227,7 @@ div .login { background-color: white; }
 }
 
 .LoginForm p > .input_text:focus { 
-	font-size: 160%;
+	font-size: 180%;
 }
 
 .buttons { 

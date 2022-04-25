@@ -3,13 +3,13 @@
 		<h1>SemiColon</h1>
 		<br/>
 		<form class="Register">
-      <p>
+			<p>
 				<label for="memberEmailInput" pattern="^(?=.*\d)(?=.*[a-z]).{8,15}">이메일</label>
-				<input type="password" id="memberPasswordInput" class="input_text" ref="memberPasswordInput" v-model.trim="memberPassword" placeholder="사용하실 이메일을 입력하세요." />
+				<input type="text" id="memberEmailInput" class="input_text" ref="memberEmailInput" v-model.trim="memberEmail" placeholder="사용하실 이메일을 입력하세요." />
 			</p>
-      <p>
+			<p>
 				<label for="memberNicknameInput" pattern="^(?=.*\d)(?=.*[a-z]).{8,15}">닉네임</label>
-				<input type="password" id="memberPasswordInput" class="input_text" ref="memberPasswordInput" v-model.trim="memberPassword" placeholder="사용하실 닉네임을 입력하세요." />
+				<input type="text" id="memberNicknameInput" class="input_text" ref="memberNicknameInput" v-model.trim="memberNickname" placeholder="사용하실 닉네임을 입력하세요." />
 			</p>
 			<p>
 				<label for="memberIdInput" pattern="^(?=.*\d)(?=.*[a-z]).{5,15}">아이디</label>&nbsp;
@@ -35,11 +35,27 @@
 				<button @click.prevent="doCancel" class="button" name="cancelButton" id="cancelButton">취소</button>
 			</p>
 		</form>
-		<p>{{ errorMessage }}</p>
 	</div>
 </template>
 
 <script>
+import UserInfoJSON from "@/assets/UserInfo/Admin.json"; 
+const data = UserInfoJSON; 
+var id;
+var Pw;
+var Nickname;
+var Email;
+
+// 배열 선언
+// var dataArr = new Array();
+// 객체 생성
+// var dataObj = new Object();
+
+// dataObj.nickname = document.getElementById("memberNicknameInput").value();
+// dataObj.email = document.getElementById("memberEmailInput").value();
+// dataObj.id = document.getElementById("memberIdInput").value();
+// dataObj.password = document.getElementById("memberPasswordInput").value();
+
 export default {
 	name: 'LoginForm',
 	data : function() {
@@ -48,13 +64,39 @@ export default {
 			memberNickname : '',
 			memberId : '',
 			memberPassword : '',
-			errorMessage : ''
+			errorMessage : '',
+			data: data,
+			id: id,
+			Pw: Pw,
+			Nickname: Nickname,
+			Email: Email
 		}
 	},
 	methods : {
+		checkAll() {
+			if (document.getElementById("memberIdInput").value != null && document.getElementById("memberPasswordInput").value != null && document.getElementById("memberNicknameInput").value != null && document.getElementById("memberEmailInput").value != null) {
+				alert("성공!");
+				// dataArr.push(dataObj);
+				// var jsonData = JSON.stringify(dataArr);
+				// alert(jsonData);
+			} 
+
+			id = document.getElementById("memberIdInput").value; 
+			Pw = document.getElementById("memberPasswordInput").value; 
+			Nickname = document.getElementById("memberNicknameInput").value; 
+			Email = document.getElementById("memberEmailInput").value;
+		},
+		doCancel() {
+			document.getElementById("memberIdInput").value = null; 
+			document.getElementById("memberPasswordInput").value = null; 
+			document.getElementById("memberNicknameInput").value = null; 
+			document.getElementById("memberEmailInput").value = null;
+			document.getElementById("memberEmailInput").focus();
+		}
 	},
 	mounted() {
-		this.$refs.memberEmailInput.focus();
+		document.getElementById("memberEmailInput").focus();
+		// this.$refs.memberEmailInput.focus();
 	}
 };
 </script>
@@ -105,7 +147,7 @@ div .RegisterView {
 }
 
 .Register p > .input_text:focus { 
-	font-size: 160%;
+	font-size: 180%;
 }
 
 .buttons { 
