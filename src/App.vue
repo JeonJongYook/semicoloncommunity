@@ -13,9 +13,12 @@
             <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" @click="fnDashboard">대시보드</a>
-            <a class="dropdown-item" @click="fnProfileEdit">프로필 수정</a>
-            <a class="dropdown-item" @click="fnLogin">로그인</a>
+            <a v-if="loginSuccess == true" class="dropdown-item" @click="fnDashboard">대시보드</a>
+            <a v-if="loginSuccess == false" class="dropdown-item">로그인 시 이용 가능합니다.</a>
+            <a v-if="loginSuccess == true" class="dropdown-item" @click="fnProfileEdit">프로필 수정</a>
+            <a v-if="loginSuccess == false" class="dropdown-item">로그인 시 이용 가능합니다.</a>
+            <a v-if="RegisterSuccess == true" class="dropdown-item" @click="fnLogin">로그인</a>
+            <a v-if="RegisterSuccess == false" class="dropdown-item" @click="fnCheck">회원가입</a>
           </div>
         </li>   
       </ul>
@@ -31,6 +34,12 @@
 <script>
 
 export default {
+  data() {
+    return {
+      loginSuccess : false,
+      RegisterSuccess : true,
+    }
+  },
   methods: {
     fnDashboard() {
       this.$router.push('/login/success/dashboard')
@@ -46,6 +55,26 @@ export default {
     },
     fnWelcome() {
       this.$router.push('/welcome')
+    },
+    fnWarn() {
+      alert("로그인 시 이용가능합니다.")
+    },
+    fnCheck() {
+      if (this.loginSuccess == true) {
+        this.$router.next();
+      }
+      else if (this.RegisterSuccess == true) {
+        this.$router.next();
+      }
+      else if (this.loginFailed == true) {
+        alert("로그인 시 이용가능합니다.");
+      }
+      else if (this.RegisterFailed == true) {
+        alert("로그인 시 이용가능합니다.");
+      }
+      else {
+        alert("로그인 시 이용가능합니다.");
+      }
     }
   }
 }

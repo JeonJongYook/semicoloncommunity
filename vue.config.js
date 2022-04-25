@@ -3,22 +3,8 @@ module.exports = defineConfig({
   transpileDependencies: true
 })
 
-// var path = require("path");
 
 module.exports = {
-  // outputDir: path.resolve("../backend/public"),
-  // outputDir: path.resolve("../public"),
-  // devServer: {
-  //   proxy: {
-  //     '/api' : {
-  //       target: 'https://localhost:8080/api',
-  //       changeOrigin: true,
-  //       pathRewrite: {
-  //         "^api" : ''
-  //       }
-  //     }
-  //   }
-  // },
   css: {
       loaderOptions: {
           sass: {

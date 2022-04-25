@@ -20,7 +20,7 @@
 			</p>
 			<div class="login_etc">
                 <div class="checkbox">
-                <input type="checkbox" name="savesession" id="savesession"> 정보를 저장할까요?
+                <input type="checkbox" name="SaveSession" id="SaveSession"> 정보를 저장할까요?
                 </div>
 				<br />
                 <div class="forgot_account">
@@ -33,8 +33,8 @@
 			</div>
 			<p class="buttons">
 				<!-- <button @click.prevent="doLogin" class="button blue" id="loginButton">로그인</button> -->
-				<button @click="checkExistData" class="button blue" name="loginButton" id="loginButton">로그인</button>
-				<button @click="doCancel" class="button">취소</button>
+				<button @click.prevent="checkExistData" @keyup.enter="submit" class="button blue" name="loginButton" id="loginButton">로그인</button>
+				<button @click.prevent="doCancel" class="button">취소</button>
 			</p>
 		</form>
 	</div>
@@ -47,11 +47,11 @@ export default {
 	name: 'LoginForm',
 	data : function() {
 		return {
-			TotalmodalStatus: false,	// 모든 modal 상태 저장
-			LoginmodalStatus: false,	//  로그인 버튼 클릭 시
-			CancelmodalStatus: false,	//  취소 버튼 클릭 시
-			IdmodalStatus: false,		// Id 입력 요구 Modal
-			PwmodalStatus: false,		// Pw 입력 요구 Modal
+			TotalModalStatus: false,	// 모든 modal 상태 저장
+			LoginModalStatus: false,	//  로그인 버튼 클릭 시
+			CancelModalStatus: false,	//  취소 버튼 클릭 시
+			IdModalStatus: false,		// Id 입력 요구 Modal
+			PwModalStatus: false,		// Pw 입력 요구 Modal
 			is_show: false,
 			memberId : '',
 			memberPassword : '',

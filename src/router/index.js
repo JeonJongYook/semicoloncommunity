@@ -43,6 +43,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "register" */ '../views/RegisterView.vue'),
   },
   {
+    path: '/admin',
+    name: 'admin',
+    component: () => import(/* webpackChunkName: "adminPage" */ '../views/Admin/AdMiniStarTorView.vue'),
+  },
+  {
     path: '/:catchAll(.*)+',
     name: 'error404',
     component: () => import(/* webpackChunkName: "notfound" */ '../views/NotFoundView.vue')
