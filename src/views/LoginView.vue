@@ -16,7 +16,7 @@
 			</p>
 			<p>
 				<label for="memberPasswordInput" pattern="^(?=.*\d)(?=.*[a-z]).{8,15}">PW</label>
-				<input type="password" id="memberPasswordInput" class="input_text" ref="memberPasswordInput" v-model.trim="memberPassword" placeholder="패스워드를 입력하세요." />
+				<input type="password" id="memberPasswordInput" class="input_text" ref="memberPasswordInput" v-model.trim="memberPassword" placeholder="비밀번호를 입력하세요." />
 			</p>
 			<div class="login_etc">
                 <div class="checkbox">
