@@ -8,8 +8,8 @@
 
 <script>
 
-import UserInfoJSON from "@/assets/UserInfo/Admin.json"; 
-const data = UserInfoJSON; // 
+import UserInfoJSON from "@/assets/UserInfo/Admin.json";
+const data = UserInfoJSON;
 
 export default {
   components: {},

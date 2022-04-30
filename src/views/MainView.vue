@@ -13,7 +13,7 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 
-div .home { 
+div .home {
   margin-top: 20px;
   text-align: center;
   font-family: 'Jua', sans-serif;
