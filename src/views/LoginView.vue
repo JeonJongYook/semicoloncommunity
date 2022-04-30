@@ -24,7 +24,7 @@
                 </div>
 				<br />
                 <div class="forgot_account">
-                <a @click="fnFindId"> 아이디 </a> 혹은 <a @click="fnFindPw"> 비밀번호를 </a>잊으셨나요?
+                <a @click="fnFindId"> 아이디</a> 혹은 <a @click="fnFindPw"> 비밀번호</a>를 잊으셨나요?
 				</div>
             </div>
 			<br />
@@ -80,17 +80,17 @@ export default {
         },
         checkExistData() {
             if (this.memberId == "") {
-				alert("아이디를 입력해주세요!");
+                alert("아이디를 입력해주세요!");
 				this.$refs.memberIdInput.focus();
 				return true;
 
             } else if (this.memberPassword == "") {
-				alert("비밀번호를 입력해주세요!");
-				this.$refs.memberPasswordInput.focus();
-				return true;
+                alert("비밀번호를 입력해주세요!");
+                this.$refs.memberPasswordInput.focus();
+                return true;
             } else if (this.memberId == this.id && this.memberPassword == this.pw ) {
                 alert(this.memberId + "님 환영합니다.");
-				this.$router.push("/login/success/")
+                this.$router.push("/login/success/")
                 return true;
             } 
             return false;
@@ -278,6 +278,10 @@ div .login { background-color: white; }
   font-weight: bold;
   text-align: center;
   margin-left: 10px;
+}
+
+.login_etc > .forgot_account > a {
+	text-decoration: underline;
 }
 
 div .SubmitAccount {

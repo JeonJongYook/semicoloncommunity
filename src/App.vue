@@ -13,22 +13,21 @@
             <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a v-if="loginSuccess == true" class="dropdown-item" @click="fnCheck">대시보드</a>
-            <a v-if="loginSuccess == false" class="dropdown-item">로그인 시 이용 가능합니다.</a>
-            <a v-if="loginSuccess == true" class="dropdown-item" @click="fnCheck">프로필 수정</a>
-            <a v-if="loginSuccess == false" class="dropdown-item">로그인 시 이용 가능합니다.</a>
-            <a v-if="RegisterSuccess == true" class="dropdown-item" @click="fnCheck">로그인</a>
-            <a v-if="RegisterSuccess == false" class="dropdown-item" @click="fnCheck">회원가입</a>
+            <a v-if="LoginStatus == true" class="dropdown-item" @click="fnCheck">대시보드</a>
+            <a v-if="LoginStatus == true" class="dropdown-item" @click="fnCheck">프로필 수정</a>
+            <a v-if="RegisterStatus == true" class="dropdown-item" @click="fnCheck">로그인</a>
+            <a v-if="LoginStatus == false" class="dropdown-item" @click="fnCheck">회원가입</a>
           </div>
         </li>   
       </ul>
     </div>
   </nav>
   <router-view/>
-  <div class="margin-footer"></div>
-  <footer class="mt-5 py-5 bg-dark text-white">
+  <div class="margin-footer">
+    <footer class="mt-5 py-5 bg-dark text-white">
 		<p>&copy; CopyRight SemiColon</p>
-  </footer>
+    </footer>
+  </div>
 </template>
 
 <script>
@@ -36,8 +35,8 @@
 export default {
   data() {
     return {
-      loginSuccess : false,
-      RegisterSuccess : true,
+      LoginStatus: false,
+      RegisterStatus: false,
     }
   },
   methods: {
@@ -50,6 +49,9 @@ export default {
     fnLogin() {
       this.$router.push('/login')
     },
+    fnRegister() {
+      this.$router.push('/register')
+    },
     fnMain() {
       this.$router.push('/main')
     },
@@ -60,20 +62,19 @@ export default {
       alert("로그인 시 이용가능합니다.")
     },
     fnCheck() {
-      if (this.loginSuccess == true) {
-        this.$router.next();
+      if (this.LoginStatus == false) {
+        alert("로그인이 필요합니다. \n로그인 페이지로 이동합니다.");
+        this.fnLogin();
       }
-      else if (this.RegisterSuccess == true) {
-        this.$router.next();
+      else if (this.RegisterStatus == false) {
+        alert("서비스 이용시 회원가입이 필요합니다. \n회원가입 페이지로 이동합니다.");
+        this.fnRegister();
       }
-      else if (this.loginFailed == true) {
-        alert("로그인 시 이용가능합니다.");
-      }
-      else if (this.RegisterFailed == true) {
-        alert("로그인 시 이용가능합니다.");
+      else if (this.LoginStatus == true) {
+        alert("환영합니다");
       }
       else {
-        alert("로그인 시 이용가능합니다.");
+        alert("관리자에게 문의해주세요");
       }
     }
   }
@@ -209,7 +210,7 @@ nav div a{
 }  */
 
 a{
-  text-decoration:none; 
+  text-decoration: none; 
   color: white;
 }
 
@@ -377,7 +378,7 @@ color: #2E2E2E;
 }
 
 .navbar-expand-lg .navbar-nav .dropdown-menu {
-  font-size: 26px important;
+  font-size: 26px !important;
 }
 
 .bg-custom-1 {
@@ -392,4 +393,7 @@ div .margin-footer {
   margin-top: 300px !important;
 }
 
+footer p {
+  font-size: 20px !important;
+}
 </style>
