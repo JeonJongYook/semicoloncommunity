@@ -53,12 +53,6 @@ export default {
 	name: 'LoginForm',
 	data : function() {
 		return {
-			TotalModalStatus: false,	// 모든 modal 상태 저장
-			LoginModalStatus: false,	//  로그인 버튼 클릭 시
-			CancelModalStatus: false,	//  취소 버튼 클릭 시
-			IdModalStatus: false,		// Id 입력 요구 Modal
-			PwModalStatus: false,		// Pw 입력 요구 Modal
-			is_show: false,
 			memberId : '',
 			memberPassword : '',
 			errorMessage : '',
