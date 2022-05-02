@@ -42,8 +42,8 @@
 </template>
 
 <script>
-import UserInfoJSON from "@/assets/UserInfo/Admin.json"; 
-const data = UserInfoJSON; 
+import UserInfoJS from "@/assets/UserInfo/Admin.js"; 
+const data = UserInfoJS; 
 const name = data.name;
 const id = data.id;
 const pw = data.password;
@@ -72,56 +72,56 @@ export default {
                 return true;
             }
         },
-        checkExistData() {
-            if (this.memberId == "") {
-                alert("아이디를 입력해주세요!");
-				this.$refs.memberIdInput.focus();
-				return true;
+        // checkExistData() {
+        //     if (this.memberId == "") {
+        //         alert("아이디를 입력해주세요!");
+		// 		this.$refs.memberIdInput.focus();
+		// 		return true;
 
-            } else if (this.memberPassword == "") {
-                alert("비밀번호를 입력해주세요!");
-                this.$refs.memberPasswordInput.focus();
-                return true;
-            } else if (this.memberId == this.id && this.memberPassword == this.pw ) {
-                alert(this.memberId + "님 환영합니다.");
-                this.$router.push("/login/success/")
-                return true;
-            } 
-            return false;
-        },
-        checkUserId(id) {
-            if(!this.checkExistData(id, "아이디를"))
-            return false;
+        //     } else if (this.memberPassword == "") {
+        //         alert("비밀번호를 입력해주세요!");
+        //         this.$refs.memberPasswordInput.focus();
+        //         return true;
+        //     } else if (this.memberId == this.id && this.memberPassword == this.pw ) {
+        //         alert(this.memberId + "님 환영합니다.");
+        //         this.$router.push("/login/success/")
+        //         return true;
+        //     } 
+        //     return false;
+        // },
+        // checkUserId(id) {
+        //     if(!this.checkExistData(id, "아이디를"))
+        //     return false;
 
-            var idRegExp = /^[a-zA-z0-9]{8,16}$/;
-            if(!idRegExp.text(id)) {
-                alert("아이디는 영문 대소문자와 숫자 8~16자리로 입력해야 합니다.");
-                this.$refs.memberIdInput.value == "";
-                this.$refs.memberIdInput.value.focus();
-                return false;
-            }
-            return true;
-        },
-        checkPassword(id, password1) {
-            if (!this.checkExistData(password1, "비밀번호를"))
-            return false;
+        //     var idRegExp = /^[a-zA-z0-9]{8,16}$/;
+        //     if(!idRegExp.text(id)) {
+        //         alert("아이디는 영문 대소문자와 숫자 8~16자리로 입력해야 합니다.");
+        //         this.$refs.memberIdInput.value == "";
+        //         this.$refs.memberIdInput.value.focus();
+        //         return false;
+        //     }
+        //     return true;
+        // },
+        // checkPassword(id, password1) {
+        //     if (!this.checkExistData(password1, "비밀번호를"))
+        //     return false;
 
-            var password1RegExp = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^*+=-]).{6,16}$/;
-            if (!password1RegExp.test(password1)) {
-                alert("비밀번호는 영문 대소문자와 숫자 4~12자리로 입력해야합니다!");
-                this.$refs.memberPasswordInput.value = "";
-                this.$refs.memberPasswordInput.focus();
-                return false;
-            }
+        //     var password1RegExp = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^*+=-]).{6,16}$/;
+        //     if (!password1RegExp.test(password1)) {
+        //         alert("비밀번호는 영문 대소문자와 숫자 4~12자리로 입력해야합니다!");
+        //         this.$refs.memberPasswordInput.value = "";
+        //         this.$refs.memberPasswordInput.focus();
+        //         return false;
+        //     }
 
-            if (id == password1) {
-                alert("아이디와 비밀번호는 같을 수 없습니다!");
-                this.$refs.memberPasswordInput.value = "";
-                this.$refs.memberPasswordInput.focus();
-                return false;
-            }
-            return true;
-        },
+        //     if (id == password1) {
+        //         alert("아이디와 비밀번호는 같을 수 없습니다!");
+        //         this.$refs.memberPasswordInput.value = "";
+        //         this.$refs.memberPasswordInput.focus();
+        //         return false;
+        //     }
+        //     return true;
+        // },
 		doLogin() {
 			if (this.memberId == "") {
 				alert("아이디를 입력해주세요!");

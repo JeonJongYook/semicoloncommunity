@@ -39,8 +39,8 @@
 </template>
 
 <script>
-import UserInfoJSON from "@/assets/UserInfo/Admin.json"; 
-const data = UserInfoJSON; 
+import UserInfoJS from "@/assets/UserInfo/Admin.js"; 
+const data = UserInfoJS; 
 var id;
 var Pw;
 var Nickname;

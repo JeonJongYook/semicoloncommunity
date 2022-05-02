@@ -3,8 +3,8 @@
 </template>
 
 <script>
-import UserInfoJSON from "@/assets/UserInfo/Admin.json"; 
-const data = UserInfoJSON; 
+import UserInfoJS from "@/assets/UserInfo/Admin.js"; 
+const data = UserInfoJS; 
 const name = data.name;
 const id = data.id;
 const pw = data.password;
