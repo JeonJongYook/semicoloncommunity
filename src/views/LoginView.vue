@@ -43,7 +43,14 @@
 
 <script>
 import UserInfoJS from "@/assets/UserInfo/Admin.js"; 
+import State from '../App.vue';
+
 const data = UserInfoJS; 
+const StateData = State; 
+
+const LoginStatus = StateData.LoginState;
+const RegisterStatus = StateData.RegisterState;
+
 const name = data.name;
 const id = data.id;
 const pw = data.password;
@@ -59,19 +66,21 @@ export default {
 			data : data,
 			name : name,
 			id : id,
-			pw : pw
+			pw : pw,
+			LoginStatus: LoginStatus,
+			RegisterStatus: RegisterStatus,
 		};
 	},
 	methods : {
-        checkAll() {
-            if (!this.checkUserId(this.$refs.memberIdInput.value)) {
-                return false;
-            } else if (!this.checkPassword(this.$refs.memberIdInput.value, this.$refs.memberPasswordInput.value)) {
-                return false;
-            } else {
-                return true;
-            }
-        },
+        // checkAll() {
+        //     if (this.LoginStatus == false) {
+        //         return false;
+        //     } else if (!this.checkPassword(this.$refs.memberIdInput.value, this.$refs.memberPasswordInput.value)) {
+        //         return false;
+        //     } else {
+        //         return true;
+        //     }
+        // },
         // checkExistData() {
         //     if (this.memberId == "") {
         //         alert("아이디를 입력해주세요!");
