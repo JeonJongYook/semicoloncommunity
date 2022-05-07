@@ -85,7 +85,7 @@
   </nav>
   <router-view/>
   <div class="div-footer"></div>
-    <footer class="footer">
+    <footer class="footer"> 
       <p>&copy; CopyRight SemiColon</p>
     </footer>
 </template>

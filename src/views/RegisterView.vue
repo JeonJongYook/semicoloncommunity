@@ -28,11 +28,11 @@
 				</div>
       </div>
 			<div class="SubmitAccount">
-				<span>만약 계정이 없다면, <router-link to="/register">회원가입</router-link>을 먼저 진행해주세요!</span>
+				<span>만약 계정이 있다면, <router-link to="/login">로그인</router-link>을 먼저 진행해주세요!</span>
 			</div>
 			<p class="buttons">
-				<button @click.prevent="checkAll" class="button blue" name="SubmitButton" id="SubmitButton">가입하기</button>
-				<button @click.prevent="doCancel" class="button" name="cancelButton" id="cancelButton">취소</button>
+				<button @click.prevent="checkAll()" class="button blue" name="SubmitButton" id="SubmitButton">가입하기</button>
+				<button @click.prevent="doCancel()" class="button" name="cancelButton" id="cancelButton">취소</button>
 			</p>
 		</form>
 	</div>

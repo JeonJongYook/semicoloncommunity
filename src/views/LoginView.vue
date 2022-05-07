@@ -1,14 +1,8 @@
 <template lang="ko">
-	<div class="black-bg" v-show="is_show">
-		<div class="white-bg">
-			<h4>안녕</h4>
-			<p>상세페이지 내용</p>
-			<button @click="handle_toggle" type="button">모달창 닫기</button>
-		</div>
-	</div>
 	<div class="login">
 		<h1>SemiColon</h1>
 		<br/>
+		
 		<form class="LoginForm">
 			<p>
 				<label for="memberIdInput" pattern="^(?=.*\d)(?=.*[a-z]).{5,15}">ID</label>&nbsp;
@@ -20,20 +14,58 @@
 			</p>
 			<div class="login_etc">
                 <div class="checkbox">
-                <input type="checkbox" name="SaveSession" id="SaveSession"> 정보를 저장할까요?
+					<input type="checkbox" name="SaveSession" id="SaveSession"> 정보를 저장할까요?
                 </div>
 				<br />
                 <div class="forgot_account">
-                <a @click="fnFindId"> 아이디</a> 혹은 <a @click="fnFindPw"> 비밀번호</a>를 잊으셨나요?
+					<a @click="fnFindId"> 아이디</a> 혹은 <a @click="fnFindPw"> 비밀번호</a>를 잊으셨나요?
 				</div>
             </div>
 			<br />
 			<div class="SubmitAccount">
 				<span>만약 계정이 없다면, <router-link to="/register">회원가입</router-link>을 먼저 진행해주세요!</span>
 			</div>
+			<!-- Id NULL Modal -->
+			<div v-if="this.lgStatus == true" class="modal fade" id="IdNull" tabindex="-1" aria-labelledby="IdNullLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="IdNullLabel">ID(아이디) 입력값 오류</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="확인"></button>
+					</div>
+					<div class="modal-body">
+						ID를 입력해주세요!
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">확인</button>
+							<!-- <button type="button" class="btn btn-primary">확인</button> -->
+					</div>
+					</div>
+				</div>
+			</div>
+			<!-- PW NULL Modal -->
+			<div v-if="this.regStatus == true" class="modal fade" id="PwNull" tabindex="-1" aria-labelledby="PwNullLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="PwNullLabel">ID(아이디) 입력값 오류</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="확인"></button>
+					</div>
+					<div class="modal-body">
+						ID를 입력해주세요!
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">확인</button>
+						<!-- <button type="button" class="btn btn-primary">확인</button> -->
+					</div>
+					</div>
+				</div>
+			</div>
+			
 			<p class="buttons">
 				<!-- <button @click.prevent="doLogin" class="button blue" id="loginButton">로그인</button> -->
-				<button @click.prevent="checkExistData" @keyup.enter="submit" class="button blue" name="loginButton" id="loginButton">로그인</button>
+				<!-- <button @click.prevent="doLogin" @keyup.enter="submit" class="button blue" name="loginButton" id="loginButton">로그인</button> -->
+				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#PwNull">로그인</button>
 				<button @click.prevent="doCancel" class="button">취소</button>
 			</p>
 		</form>
@@ -69,6 +101,8 @@ export default {
 			pw : pw,
 			LoginStatus: LoginStatus,
 			RegisterStatus: RegisterStatus,
+			lgStatus: false,
+			regStatus : false,
 		};
 	},
 	methods : {
@@ -132,25 +166,28 @@ export default {
         //     return true;
         // },
 		doLogin() {
-			if (this.memberId == "") {
+			if (document.getElementById("memberIdInput").value == "") {
 				alert("아이디를 입력해주세요!");
-				this.$refs.memberIdInput.focus();
-				return true;
-			} else if (this.memberPassword == "") {
+				document.getElementById("memberIdInput").focus();
+
+			} else if (document.getElementById("memberPasswordInput").value == "") {
 				alert("비밀번호를 입력해주세요!");
-				this.$refs.memberPasswordInput.focus();
-				return true;
-                
-            } else if (this.memberId == this.id && this.memberPassword == this.pw) {
-                alert(this.memberId + "님 환영합니다.");
-                return true;
-            }
-            return false;
+				document.getElementById("memberPasswordInput").focus();
+            
+			} else if (this.memberId == this.data.id && this.memberPassword == this.data.pw) {
+				alert(this.memberId + "님 환영합니다.");
+				this.$router.push('/login/success/:memberId');
+			
+			} else if (this.memberId != this.data.id && this.memberPassword != this.data.pw) {
+				alert("없는 계정입니다.");
+				// const el = document.getElementById("memberIdInput");
+				// return JSON.parse(el.dataset.model)
+			}
 		},
 		doCancel() {
-			this.$refs.memberIdInput.value = '';
-			this.$refs.memberPasswordInput.value = '';
-			this.$refs.memberIdInput.focus();
+			document.getElementById("memberIdInput").value = null;
+			document.getElementById("memberPasswordInput").value = null;
+			document.getElementById("memberIdInput").focus();
 		},
 		fnFindId() {
 			// this.$refs.memberIdInput && this.memberPasswordInput.trim();
@@ -162,7 +199,7 @@ export default {
 		},
 	},
 	mounted() {
-		this.$refs.memberIdInput.focus();
+		document.getElementById("memberIdInput").focus();
 	}
 };
 </script>
