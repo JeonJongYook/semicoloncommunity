@@ -8,7 +8,7 @@
 
 <script>
 
-import UserInfoJS from "@/assets/UserInfo/Admin.js";
+import UserInfoJS from "@/assets/UserInfo/Admin.json";
 const data = UserInfoJS;
 
 export default {

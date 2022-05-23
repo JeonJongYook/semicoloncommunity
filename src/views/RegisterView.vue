@@ -1,4 +1,4 @@
-<template lang="ko">
+<template>
 	<div class="RegisterView">
 		<h1>SemiColon</h1>
 		<br/>
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import UserInfoJS from "@/assets/UserInfo/Admin.js"; 
+import UserInfoJS from "@/assets/UserInfo/Admin.json"; 
 const data = UserInfoJS; 
 var id;
 var Pw;

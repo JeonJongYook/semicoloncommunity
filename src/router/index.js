@@ -1,18 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import MainView from '../views/MainView.vue'
-import WelcomeView from '../views/WelcomeView.vue'
 
 const routes = [
   {
     path: '/',
     name: 'welcome',
-    component: WelcomeView,
-    alias: '/index'
-  },
-  {
-    path: '/main',
-    name: 'main',
-    component: MainView,
+    component:  () => import(/* webpackChunkName: "welcome" */ '../views/WelcomeView.vue'),
   },
   {
     path: '/login/success/profile',
@@ -44,6 +36,11 @@ const routes = [
     name: 'admin',
     component: () => import(/* webpackChunkName: "adminPage" */ '../views/Admin/AdMiniStarTorView.vue'),
   },
+  // {
+  //   path: '/test',
+  //   name: 'test',
+  //   component: () => import(/* webpackChunkName: "testPage" */ '../views/ToastView.vue'),
+  // },
   {
     path: '/:catchAll(.*)+',
     name: 'error404',

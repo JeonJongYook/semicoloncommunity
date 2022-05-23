@@ -1,4 +1,4 @@
-<template lang="ko">
+<template>
 	<div class="login">
 		<h1>SemiColon</h1>
 		<br/>
@@ -65,8 +65,8 @@
 			<p class="buttons">
 				<!-- <button @click.prevent="doLogin" class="button blue" id="loginButton">로그인</button> -->
 				<!-- <button @click.prevent="doLogin" @keyup.enter="submit" class="button blue" name="loginButton" id="loginButton">로그인</button> -->
-				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#PwNull">로그인</button>
-				<button @click.prevent="doCancel" class="button">취소</button>
+				<button @click.prevent="doLogin" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#PwNull">로그인</button>
+				<button @click.prevent="doCancel" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#PwNull">취소</button>
 			</p>
 		</form>
 	</div>
@@ -74,7 +74,7 @@
 </template>
 
 <script>
-import UserInfoJS from "@/assets/UserInfo/Admin.js"; 
+import UserInfoJS from "@/assets/UserInfo/Admin.json"; 
 import State from '../App.vue';
 
 const data = UserInfoJS; 
@@ -211,7 +211,7 @@ export default {
 /* Import End */
 
 body {
-	margin: 0
+	margin: 0;
 }
 
 div {

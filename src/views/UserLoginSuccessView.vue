@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import UserInfoJS from "@/assets/UserInfo/Admin.js"; 
+import UserInfoJS from "@/assets/UserInfo/Admin.json"; 
 const data = UserInfoJS; 
 const name = data.name;
 const id = data.id;
