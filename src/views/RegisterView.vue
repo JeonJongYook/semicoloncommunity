@@ -39,22 +39,8 @@
 </template>
 
 <script>
-import UserInfoJS from "@/assets/UserInfo/Admin.json"; 
-const data = UserInfoJS; 
-var id;
-var Pw;
-var Nickname;
-var Email;
-
-// 배열 선언
-// var dataArr = new Array();
-// 객체 생성
-// var dataObj = new Object();
-
-// dataObj.nickname = document.getElementById("memberNicknameInput").value();
-// dataObj.email = document.getElementById("memberEmailInput").value();
-// dataObj.id = document.getElementById("memberIdInput").value();
-// dataObj.password = document.getElementById("memberPasswordInput").value();
+import userList from "@/assets/data/users.json";
+const data = userList; 
 
 export default {
 	name: 'LoginForm',
@@ -66,10 +52,6 @@ export default {
 			memberPassword : '',
 			errorMessage : '',
 			data: data,
-			id: id,
-			Pw: Pw,
-			Nickname: Nickname,
-			Email: Email
 		}
 	},
 	methods : {
@@ -80,11 +62,6 @@ export default {
 				// var jsonData = JSON.stringify(dataArr);
 				// alert(jsonData);
 			} 
-
-			id = document.getElementById("memberIdInput").value; 
-			Pw = document.getElementById("memberPasswordInput").value; 
-			Nickname = document.getElementById("memberNicknameInput").value; 
-			Email = document.getElementById("memberEmailInput").value;
 		},
 		doCancel() {
 			document.getElementById("memberIdInput").value = null; 

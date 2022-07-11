@@ -1,28 +1,4 @@
 <template>
-  <!-- <ul class="menu">
-    <div class="menu-indicator"></div>
-    <li class="menu-item" v-for="link in links" :key="link.id">
-      <a href="#" class="menu-link">
-        <i class="menu-icon" :class="link.icon"></i>
-        <span>{{link.text}}</span>
-      </a>
-    </li>
-  </ul> -->
-  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" @click="fnMain" cursor="pointer">SemiColon</a>
-      </div>
-      <ul class="navbar-nav">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" @click="fnLogin">로그인</a></li>
-            <li><a class="dropdown-item" @click="fnRegister">회원가입</a></li>
-          </ul>
-      </ul>
-  </nav> -->
-  <!-- <router-view/> -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-white static-top">
     <div class="container-fluid">
       <a class="navbar-brand" @click="fnWelcome()" cursor="pointer">SemiColon</a>
@@ -101,18 +77,23 @@ export default {
 };
 </script>
 
-<style scoped>  
+<style scoped>
+  
 @import url("https://fonts.googleapis.com/css2/family=Roboto:wght@300;400;500;700;900&");
 
 #app {
-  margin: auto; 
-  width:750px; 
-  min-height:100%; 
-  padding-top:71px;
+  /* margin: auto;  */
+  /* width:750px;  */
+  /* min-height:100%;  */
+  /* padding-top:71px; */
   border-left:1px #D8D8D8 solid; 
   border-right:1px #D8D8D8 solid; 
   position:relative; 
+  transform: translateY(-100%);
+  min-height: 100%;
   text-align:center;
+  height: auto;
+  padding-bottom: 49.7px;
 }
 
 body {
@@ -124,10 +105,11 @@ body {
 }
 
 .footer {
+  height: 49.7px;
   background-color: #474747;
   color: white;
-  margin: 0 auto;
-  margin-top: 300px;
+  position: relative;
+  transform: translateY(1000%);
 }
 
 .navbar-nav {

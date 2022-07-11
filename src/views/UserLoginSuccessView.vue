@@ -3,21 +3,16 @@
 </template>
 
 <script>
-import UserInfoJS from "@/assets/UserInfo/Admin.json"; 
-const data = UserInfoJS; 
-const name = data.name;
-const id = data.id;
-const pw = data.password;
+import userList from "../assets/data/users.json";
+
+const data = userList; 
 
 export default {
 	components: {},
 	computed: {},
 	data() {
 		return {
-			data,
-			id,
-			name,
-			pw
+			data
 		}
 	}
 }

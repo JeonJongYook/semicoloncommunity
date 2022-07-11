@@ -24,4 +24,4 @@ createApp(App).use(router)
 // createApp(App).use(IconsPlugin)
 .mount('#app')
 
-createApp.config.productionTip = false
+createApp.productionTip = false

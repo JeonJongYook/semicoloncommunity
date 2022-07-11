@@ -36,11 +36,11 @@ const routes = [
     name: 'admin',
     component: () => import(/* webpackChunkName: "adminPage" */ '../views/Admin/AdMiniStarTorView.vue'),
   },
-  // {
-  //   path: '/test',
-  //   name: 'test',
-  //   component: () => import(/* webpackChunkName: "testPage" */ '../views/ToastView.vue'),
-  // },
+  {
+    path: '/userPost',
+    name: 'userPost',
+    component: () => import(/* webpackChunkName: "userPostPage" */ '../views/userPostView.vue'),
+  },
   {
     path: '/:catchAll(.*)+',
     name: 'error404',

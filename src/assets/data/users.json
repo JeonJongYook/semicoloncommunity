@@ -1,0 +1,18 @@
+{
+    "users":[
+        {
+            "uid":1,
+            "id":"test1",
+            "password":"test1234",
+            "name": "roseline", 
+            "phone_number":"010-0000-0000"
+        },
+        {
+            "uid":2,
+            "id":"test1",
+            "password":"test1234",
+            "name": "songsong",
+            "phone_number":"010-1111-1111"
+        }
+    ]
+}

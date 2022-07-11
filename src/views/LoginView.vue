@@ -1,72 +1,78 @@
 <template>
 	<div class="login">
 		<h1>SemiColon</h1>
-		<br/>
-		
+		<br />
+
 		<form class="LoginForm">
 			<p>
 				<label for="memberIdInput" pattern="^(?=.*\d)(?=.*[a-z]).{5,15}">ID</label>&nbsp;
-				<input type="text" id="memberIdInput" class="input_text" ref="memberIdInput" v-model.trim="memberId" placeholder="아이디를 입력하세요." />
+				<input type="text" id="memberIdInput" class="input_text" ref="memberIdInput" v-model.trim="memberId"
+					placeholder="아이디를 입력하세요." />
 			</p>
 			<p>
 				<label for="memberPasswordInput" pattern="^(?=.*\d)(?=.*[a-z]).{8,15}">PW</label>
-				<input type="password" id="memberPasswordInput" class="input_text" ref="memberPasswordInput" v-model.trim="memberPassword" placeholder="비밀번호를 입력하세요." />
+				<input type="password" id="memberPasswordInput" class="input_text" ref="memberPasswordInput"
+					v-model.trim="memberPassword" placeholder="비밀번호를 입력하세요." />
 			</p>
 			<div class="login_etc">
-                <div class="checkbox">
+				<div class="checkbox">
 					<input type="checkbox" name="SaveSession" id="SaveSession"> 정보를 저장할까요?
-                </div>
+				</div>
 				<br />
-                <div class="forgot_account">
+				<div class="forgot_account">
 					<a @click="fnFindId"> 아이디</a> 혹은 <a @click="fnFindPw"> 비밀번호</a>를 잊으셨나요?
 				</div>
-            </div>
+			</div>
 			<br />
 			<div class="SubmitAccount">
 				<span>만약 계정이 없다면, <router-link to="/register">회원가입</router-link>을 먼저 진행해주세요!</span>
 			</div>
 			<!-- Id NULL Modal -->
-			<div v-if="this.lgStatus == true" class="modal fade" id="IdNull" tabindex="-1" aria-labelledby="IdNullLabel" aria-hidden="true">
+			<div v-if="this.lgStatus == true" class="modal fade" id="IdNull" tabindex="-1" aria-labelledby="IdNullLabel"
+				aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="IdNullLabel">ID(아이디) 입력값 오류</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="확인"></button>
-					</div>
-					<div class="modal-body">
-						ID를 입력해주세요!
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">확인</button>
+						<div class="modal-header">
+							<h5 class="modal-title" id="IdNullLabel">ID(아이디) 입력값 오류</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="확인"></button>
+						</div>
+						<div class="modal-body">
+							ID를 입력해주세요!
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">확인</button>
 							<!-- <button type="button" class="btn btn-primary">확인</button> -->
-					</div>
+						</div>
 					</div>
 				</div>
 			</div>
 			<!-- PW NULL Modal -->
-			<div v-if="this.regStatus == true" class="modal fade" id="PwNull" tabindex="-1" aria-labelledby="PwNullLabel" aria-hidden="true">
+			<div v-if="this.regStatus == true" class="modal fade" id="PwNull" tabindex="-1"
+				aria-labelledby="PwNullLabel" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="PwNullLabel">ID(아이디) 입력값 오류</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="확인"></button>
-					</div>
-					<div class="modal-body">
-						ID를 입력해주세요!
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">확인</button>
-						<!-- <button type="button" class="btn btn-primary">확인</button> -->
-					</div>
+						<div class="modal-header">
+							<h5 class="modal-title" id="PwNullLabel">ID(아이디) 입력값 오류</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="확인"></button>
+						</div>
+						<div class="modal-body">
+							ID를 입력해주세요!
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">확인</button>
+							<!-- <button type="button" class="btn btn-primary">확인</button> -->
+						</div>
 					</div>
 				</div>
 			</div>
-			
+
 			<p class="buttons">
 				<!-- <button @click.prevent="doLogin" class="button blue" id="loginButton">로그인</button> -->
 				<!-- <button @click.prevent="doLogin" @keyup.enter="submit" class="button blue" name="loginButton" id="loginButton">로그인</button> -->
-				<button @click.prevent="doLogin" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#PwNull">로그인</button>
-				<button @click.prevent="doCancel" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#PwNull">취소</button>
+				<button @click.prevent="doLogin" type="button" class="btn btn-primary" data-bs-toggle="modal"
+					data-bs-target="#PwNull">로그인</button>
+				<button @click.prevent="doCancel" type="button" class="btn btn-primary" data-bs-toggle="modal"
+					data-bs-target="#PwNull">취소</button>
 			</p>
 		</form>
 	</div>
@@ -74,19 +80,8 @@
 </template>
 
 <script>
-import UserInfoJS from "@/assets/UserInfo/Admin.json"; 
-import State from '../App.vue';
-
-const data = UserInfoJS; 
-const StateData = State; 
-
-const LoginStatus = StateData.LoginState;
-const RegisterStatus = StateData.RegisterState;
-
-const name = data.name;
-const id = data.id;
-const pw = data.password;
-
+import userList from "../assets/data/users.json";
+const data = userList; 
 
 export default {
 	name: 'LoginForm',
@@ -96,75 +91,9 @@ export default {
 			memberPassword : '',
 			errorMessage : '',
 			data : data,
-			name : name,
-			id : id,
-			pw : pw,
-			LoginStatus: LoginStatus,
-			RegisterStatus: RegisterStatus,
-			lgStatus: false,
-			regStatus : false,
 		};
 	},
 	methods : {
-        // checkAll() {
-        //     if (this.LoginStatus == false) {
-        //         return false;
-        //     } else if (!this.checkPassword(this.$refs.memberIdInput.value, this.$refs.memberPasswordInput.value)) {
-        //         return false;
-        //     } else {
-        //         return true;
-        //     }
-        // },
-        // checkExistData() {
-        //     if (this.memberId == "") {
-        //         alert("아이디를 입력해주세요!");
-		// 		this.$refs.memberIdInput.focus();
-		// 		return true;
-
-        //     } else if (this.memberPassword == "") {
-        //         alert("비밀번호를 입력해주세요!");
-        //         this.$refs.memberPasswordInput.focus();
-        //         return true;
-        //     } else if (this.memberId == this.id && this.memberPassword == this.pw ) {
-        //         alert(this.memberId + "님 환영합니다.");
-        //         this.$router.push("/login/success/")
-        //         return true;
-        //     } 
-        //     return false;
-        // },
-        // checkUserId(id) {
-        //     if(!this.checkExistData(id, "아이디를"))
-        //     return false;
-
-        //     var idRegExp = /^[a-zA-z0-9]{8,16}$/;
-        //     if(!idRegExp.text(id)) {
-        //         alert("아이디는 영문 대소문자와 숫자 8~16자리로 입력해야 합니다.");
-        //         this.$refs.memberIdInput.value == "";
-        //         this.$refs.memberIdInput.value.focus();
-        //         return false;
-        //     }
-        //     return true;
-        // },
-        // checkPassword(id, password1) {
-        //     if (!this.checkExistData(password1, "비밀번호를"))
-        //     return false;
-
-        //     var password1RegExp = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^*+=-]).{6,16}$/;
-        //     if (!password1RegExp.test(password1)) {
-        //         alert("비밀번호는 영문 대소문자와 숫자 4~12자리로 입력해야합니다!");
-        //         this.$refs.memberPasswordInput.value = "";
-        //         this.$refs.memberPasswordInput.focus();
-        //         return false;
-        //     }
-
-        //     if (id == password1) {
-        //         alert("아이디와 비밀번호는 같을 수 없습니다!");
-        //         this.$refs.memberPasswordInput.value = "";
-        //         this.$refs.memberPasswordInput.focus();
-        //         return false;
-        //     }
-        //     return true;
-        // },
 		doLogin() {
 			if (document.getElementById("memberIdInput").value == "") {
 				alert("아이디를 입력해주세요!");
@@ -174,14 +103,12 @@ export default {
 				alert("비밀번호를 입력해주세요!");
 				document.getElementById("memberPasswordInput").focus();
             
-			} else if (this.memberId == this.data.id && this.memberPassword == this.data.pw) {
+			} else if (this.memberId == data.id && this.memberPassword == data.password) {
 				alert(this.memberId + "님 환영합니다.");
 				this.$router.push('/login/success/:memberId');
 			
-			} else if (this.memberId != this.data.id && this.memberPassword != this.data.pw) {
-				alert("없는 계정입니다.");
-				// const el = document.getElementById("memberIdInput");
-				// return JSON.parse(el.dataset.model)
+			} else {
+				alert("없는 계정입니다.")
 			}
 		},
 		doCancel() {
