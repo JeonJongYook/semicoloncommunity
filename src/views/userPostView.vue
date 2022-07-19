@@ -1,105 +1,48 @@
 <template>
-    <div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+          <p>제목 1</p>
         <div class="card">
-            <header>
-                <h3>게시글 제목</h3>
-            </header>
-            <img src="https://i.imgur.com/foGeRFx.gifv" alt="이미지가 존재하지 않습니다.">
-            <p>게시글 설명</p>
+          <img src="https://i.imgur.com/oIlJHTO.png" alt="" class="card-img-top" />
+          <div class="card-body">
+            <h5 class="card-title">제목 2</h5>
+            <p class="card-text">설명</p>
+            <a href="#" class="btn btn-primary">더보기</a>
+          </div>
         </div>
+      </div>
+      <div class="col-4">
+        <p>제목 1</p>
         <div class="card">
-            <header>
-                <h3>게시글 제목</h3>
-            </header>
-            <img src="https://i.imgur.com/foGeRFx.gifv" alt="이미지가 존재하지 않습니다.">
-            <p>게시글 설명</p>
+          <img src="https://i.imgur.com/oIlJHTO.png" alt="" class="card-img-top" />
+          <div class="card-body">
+            <h5 class="card-title">제목 2</h5>
+            <p class="card-text">설명</p>
+            <a href="#" class="btn btn-primary">더보기</a>
+          </div>
         </div>
+      </div>
+      <div class="col-4">
+        <p>제목 1</p>
         <div class="card">
-            <header>
-                <h3>게시글 제목</h3>
-            </header>
-            <img src="https://i.imgur.com/foGeRFx.gifv" alt="이미지가 존재하지 않습니다.">
-            <p>게시글 설명</p>
+          <img src="https://i.imgur.com/oIlJHTO.png" alt="" class="card-img-top" />
+          <div class="card-body">
+            <h5 class="card-title">제목 2</h5>
+            <p class="card-text">설명</p>
+            <a href="#" class="btn btn-primary">더보기</a>
+          </div>
         </div>
-        <div class="card">
-            <header>
-                <h3>게시글 제목</h3>
-            </header>
-            <img src="https://i.imgur.com/foGeRFx.gifv" alt="이미지가 존재하지 않습니다.">
-            <p>게시글 설명</p>
-        </div>
-        <div class="card">
-            <header>
-                <h3>게시글 제목</h3>
-            </header>
-            <img src="https://i.imgur.com/foGeRFx.gifv" alt="이미지가 존재하지 않습니다.">
-            <p>게시글 설명</p>
-        </div>
-        <div class="card">
-            <header>
-                <h3>게시글 제목</h3>
-            </header>
-            <img src="https://i.imgur.com/foGeRFx.gifv" alt="이미지가 존재하지 않습니다.">
-            <p>게시글 설명</p>
-        </div>
-        <div class="card">
-            <header>
-                <h3>게시글 제목</h3>
-            </header>
-            <img src="https://i.imgur.com/foGeRFx.gifv" alt="이미지가 존재하지 않습니다.">
-            <p>게시글 설명</p>
-        </div>
-        <div class="card">
-            <header>
-                <h3>게시글 제목</h3>
-            </header>
-            <img src="https://i.imgur.com/foGeRFx.gifv" alt="이미지가 존재하지 않습니다.">
-            <p>게시글 설명</p>
-        </div>
+      </div>
     </div>
+  </div>
 </template>
 <style scoped>
 
-
-* {
-    box-sizing: border-box;
-    margin-top: 30px;
+p {
+  margin: 20px 0px;
 }
 
-.card > img {
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    overflow: hidden;
-}
-
-body {
-    background-color: #eee; 
-    font-size: 16px;
-}
-
-.wrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
-    justify-items: stretch;
-    grid-gap: 30rem;
-}
-
-.card {
-    background-color: #fff;
-    box-shadow: 0px 1px 5px #222;
-    border-radius: 1%;
-}
-
-.card > header {
-    font-size: 1.5rem;
-    padding: 0.5rem;
-}
-
-.card > p {
-    padding: 0.5rem;
-    line-height: 1.6em;
-}
 </style>
 <script>
 export default {

@@ -17,12 +17,12 @@ const routes = [
     component:  () => import(/* webpackChunkName: "register" */ '../views/LoginView.vue'),
   },
   {
-    path: '/login/success',
+    path: '/login/:userid/success',
     name: 'loginSuccess',
     component:  () => import(/* webpackChunkName: "loginSuccess" */ '../views/UserLoginSuccessView.vue'),
   },
   {
-    path: '/login/success/setting',
+    path: '/login/:userid/setting',
     name: 'loginSetting',
     component:  () => import(/* webpackChunkName: "userSetting" */ '../views/UserSettingsView.vue'),
   },

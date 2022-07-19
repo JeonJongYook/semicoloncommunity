@@ -1,0 +1,37 @@
+[
+    {
+        "username": "intec01",
+        "profile_url": "",
+        "usercode": "USER_01",
+        "id": "test01",
+        "password": "test1234"
+    },
+    {
+        "username": "intec02",
+        "profile_url": "",
+        "usercode": "USER_02",
+        "id": "test02",
+        "password": "test1234"
+    },
+    {
+        "username": "intec03",
+        "profile_url": "",
+        "usercode": "USER_03",
+        "id": "test03",
+        "password": "test1234"
+    },
+    {
+        "username": "intec04",
+        "profile_url": "",
+        "usercode": "USER_04",
+        "id": "test04",
+        "password": "test1234"
+    },
+    {
+        "username": "admin",
+        "profile_url": "",
+        "usercode": "admin_01",
+        "id": "admin01",
+        "password": "admin1234"
+    }
+]

@@ -4,19 +4,19 @@
 		<br/>
 		<form class="Register">
 			<p>
-				<label for="memberEmailInput" pattern="^(?=.*\d)(?=.*[a-z]).{8,15}">이메일</label>
+				<label for="memberEmailInput">이메일</label>
 				<input type="text" id="memberEmailInput" class="input_text" ref="memberEmailInput" v-model.trim="memberEmail" placeholder="사용하실 이메일을 입력하세요." />
 			</p>
 			<p>
-				<label for="memberNicknameInput" pattern="^(?=.*\d)(?=.*[a-z]).{8,15}">닉네임</label>
+				<label for="memberNicknameInput">닉네임</label>
 				<input type="text" id="memberNicknameInput" class="input_text" ref="memberNicknameInput" v-model.trim="memberNickname" placeholder="사용하실 닉네임을 입력하세요." />
 			</p>
 			<p>
-				<label for="memberIdInput" pattern="^(?=.*\d)(?=.*[a-z]).{5,15}">아이디</label>&nbsp;
+				<label for="memberIdInput">아이디</label>&nbsp;
 				<input type="text" id="memberIdInput" class="input_text" ref="memberIdInput" v-model.trim="memberId" placeholder="사용하실 아이디를 입력하세요." />
 			</p>
 			<p>
-				<label for="memberPasswordInput" pattern="^(?=.*\d)(?=.*[a-z]).{8,15}">비밀번호</label>
+				<label for="memberPasswordInput">비밀번호</label>
 				<input type="password" id="memberPasswordInput" class="input_text" ref="memberPasswordInput" v-model.trim="memberPassword" placeholder="사용하실 비밀번호를 입력하세요." />
 			</p>
 			<div class="submit_etc">
@@ -40,7 +40,7 @@
 
 <script>
 import userList from "@/assets/data/users.json";
-const data = userList; 
+const data = userList;
 
 export default {
 	name: 'LoginForm',
@@ -55,18 +55,10 @@ export default {
 		}
 	},
 	methods : {
-		checkAll() {
-			if (document.getElementById("memberIdInput").value != null && document.getElementById("memberPasswordInput").value != null && document.getElementById("memberNicknameInput").value != null && document.getElementById("memberEmailInput").value != null) {
-				alert("성공!");
-				// dataArr.push(dataObj);
-				// var jsonData = JSON.stringify(dataArr);
-				// alert(jsonData);
-			} 
-		},
 		doCancel() {
-			document.getElementById("memberIdInput").value = null; 
-			document.getElementById("memberPasswordInput").value = null; 
-			document.getElementById("memberNicknameInput").value = null; 
+			document.getElementById("memberIdInput").value = null;
+			document.getElementById("memberPasswordInput").value = null;
+			document.getElementById("memberNicknameInput").value = null;
 			document.getElementById("memberEmailInput").value = null;
 			document.getElementById("memberEmailInput").focus();
 		}
@@ -84,34 +76,34 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 /* Import End */
 
-div .RegisterView { 
-  background-color: white; 
+div .RegisterView {
+  background-color: white;
 }
 
-.RegisterView { 
-	width: 800px; 
+.RegisterView {
+	width: 800px;
 	margin: 20px auto;
 }
 
-.RegisterView h1 { 
-	text-align: center; 
-	font-family: 'Black Han Sans', sans-serif; 
+.RegisterView h1 {
+	text-align: center;
+	font-family: 'Black Han Sans', sans-serif;
 }
 
-.Register { 
-	margin: auto; 
+.Register {
+	margin: auto;
 	text-align: left;
 }
 
-.Register p > label { 
-	display: inline-block; 
-	font-size: 24px; 
+.Register p > label {
+	display: inline-block;
+	font-size: 24px;
 	padding-right: 16px;
-	align-items: center; 
-	font-family: 'Black Han Sans', sans-serif; 
+	align-items: center;
+	font-family: 'Black Han Sans', sans-serif;
 }
 
-.Register p > .input_text { 
+.Register p > .input_text {
 	width: 100%;
 	height: 50px;
 	text-align: center;
@@ -123,43 +115,43 @@ div .RegisterView {
 	align-items: center;
 }
 
-.Register p > .input_text:focus { 
+.Register p > .input_text:focus {
 	font-size: 180%;
 }
 
-.buttons { 
-	position:relative; 
-	height:32px; 
-	margin-top:20px; 
+.buttons {
+	position:relative;
+	height:32px;
+	margin-top:20px;
 	text-align: center;
 }
 
-.buttons > .button { 
-	overflow: visible; 
-	cursor: pointer; 
-	min-width:125px; 
+.buttons > .button {
+	overflow: visible;
+	cursor: pointer;
+	min-width:125px;
 	height: 40px;
-	margin:0 2px; 
-	padding:0 15px; 
-	line-height: 32px; 
+	margin:0 2px;
+	padding:0 15px;
+	line-height: 32px;
 	font-size: 1.2em;
 	border: 0;
-	background: #D3D3D3; 
-	border-radius: 40px;  
+	background: #D3D3D3;
+	border-radius: 40px;
 	margin-top: 20px;
 	margin-left: 10px;
-	width: 80%; 
-	font-weight: bold; 
+	width: 80%;
+	font-weight: bold;
 	outline: none;
 }
 
-.buttons > .button.blue { 
-	color:#fff; 
-	border-color:#0099d2 !important; 
-	background:#0099d2 !important; 
-	margin-top: 20px; 
+.buttons > .button.blue {
+	color:#fff;
+	border-color:#0099d2 !important;
+	background:#0099d2 !important;
+	margin-top: 20px;
 	align-items: center;
-	width: 80%; 
+	width: 80%;
 	font-weight: bold;
 	border-radius: 40px;
 }

@@ -39,11 +39,11 @@ export default {
     fnLogin() {
       this.$router.push('/login')
     },
-    // fnLogout() {
-    //     this.$router.push('/logout')
-    // },
     fnRegister() {
       this.$router.push('/register')
+    },
+    fnPost() {
+      this.$router.push('/userPost')
     },
     fnWelcome() {
       this.$router.push('/')
@@ -82,11 +82,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2/family=Roboto:wght@300;400;500;700;900&");
 
 #app {
-  /* margin: auto;  */
-  /* width:750px;  */
-  /* min-height:100%;  */
-  /* padding-top:71px; */
-  border-left:1px #D8D8D8 solid; 
+  border-left:1px #D8D8D8 solid;
   border-right:1px #D8D8D8 solid; 
   position:relative; 
   transform: translateY(-100%);
@@ -128,10 +124,5 @@ body {
   margin-bottom: auto !important;
   margin-right: auto !important;
 }
-
-/* .offcanvas-body {
-  color: #000 !important;
-  background-color: rgba(0,0,0,0.24) !important;
-} */
 
 </style>

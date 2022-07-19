@@ -2,7 +2,6 @@
 	<div class="login">
 		<h1>SemiColon</h1>
 		<br />
-
 		<form class="LoginForm">
 			<p>
 				<label for="memberIdInput" pattern="^(?=.*\d)(?=.*[a-z]).{5,15}">ID</label>&nbsp;
@@ -80,8 +79,7 @@
 </template>
 
 <script>
-import userList from "../assets/data/users.json";
-const data = userList; 
+import userList from "@/assets/UserData.json";
 
 export default {
 	name: 'LoginForm',
@@ -90,7 +88,7 @@ export default {
 			memberId : '',
 			memberPassword : '',
 			errorMessage : '',
-			data : data,
+			data : userList,
 		};
 	},
 	methods : {
@@ -98,12 +96,11 @@ export default {
 			if (document.getElementById("memberIdInput").value == "") {
 				alert("아이디를 입력해주세요!");
 				document.getElementById("memberIdInput").focus();
-
-			} else if (document.getElementById("memberPasswordInput").value == "") {
+      } else if (document.getElementById("memberPasswordInput").value == "") {
 				alert("비밀번호를 입력해주세요!");
 				document.getElementById("memberPasswordInput").focus();
             
-			} else if (this.memberId == data.id && this.memberPassword == data.password) {
+			} else if (document.getElementById("memberIdInput").value == userList.id && document.getElementById("memberPasswordInput").value== userList.password) {
 				alert(this.memberId + "님 환영합니다.");
 				this.$router.push('/login/success/:memberId');
 			
